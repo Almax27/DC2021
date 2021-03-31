@@ -4,24 +4,50 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public AudioSource testMusic = null;
+    public GameConfig gameConfig = null;
+
+    public AudioSource musicSource = null;
+    GameConfig.MusicConfig musicConfig;
+
+    public float GameSpeed = 1.0f;
+
+    //Normalised music time relative to BPM. I.e. 0-1 per beat
+    public float MusicTime { get; private set; }
 
     private void Awake()
     {
-        if(!testMusic)
+        if (!musicSource)
         {
-            testMusic = GetComponent<AudioSource>();
+            musicSource = GetComponent<AudioSource>();
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        PlayMusic(0);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (musicSource && musicSource.isPlaying)
+        {
+            MusicTime = musicSource.time * (musicConfig.BPM / 60.0f);
+            musicSource.pitch = GameSpeed;
+        }
+    }
+
+    public void PlayMusic(int index)
+    {
+        if(gameConfig && index >= 0 && index < gameConfig.musicConfigs.Count)
+        {
+            musicConfig = gameConfig.musicConfigs[index];
+            musicSource.clip = musicConfig.Clip;
+            musicSource.Play();
+        }
+        else
+        {
+            Debug.LogAssertion($"Invalid index {index}");
+        }
     }
 }

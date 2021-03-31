@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5723048573488559904
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 580979236890316523, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_Name
+      value: Skelly
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: StartFrame
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: FramesPerBeat
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[0]
+      value: 
+      objectReference: {fileID: 9197041433416207431, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[1]
+      value: 
+      objectReference: {fileID: -4951119472760046637, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[2]
+      value: 
+      objectReference: {fileID: -4449145038944661680, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[3]
+      value: 
+      objectReference: {fileID: 6952939243655889047, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[4]
+      value: 
+      objectReference: {fileID: 9072558799357809528, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[5]
+      value: 
+      objectReference: {fileID: 8921990487843269496, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[6]
+      value: 
+      objectReference: {fileID: -8733640272044108266, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1638608106708448071, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: spriteFrames.Array.data[7]
+      value: 
+      objectReference: {fileID: 1585939799509464088, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1686548359155656006, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909804694103616405, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4951119472760046637, guid: ff4178fcb6ef6e844acb5a8ba12e2b1a,
+        type: 3}
+    - target: {fileID: 2909804694103616405, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2909804694103616405, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: da2c4c0875900e94c80d7022c34af0fd, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f94088790eb25b4491ecaba2cad0ada, type: 3}

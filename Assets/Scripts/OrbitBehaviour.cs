@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicSync : MonoBehaviour
+public class OrbitBehaviour : MonoBehaviour
 {
-    
-
     // Start is called before the first frame update
     void Start()
     {

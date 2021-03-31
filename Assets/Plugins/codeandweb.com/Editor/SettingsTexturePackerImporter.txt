@@ -1,0 +1,9 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/Sprites/Enemies/DCJ_Skelly_Test_Animation.tpsheet
+textureFileNames:
+- Assets/Sprites/Enemies/DCJ_Skelly_Test_Animation.png
+normalmapFileNames:
+- Assets/Sprites/Enemies/DCJ_Skelly_Test_Animation_n.png
+enableDebugOutput: 0
