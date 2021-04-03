@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GameConfig_Test
   m_EditorClassIdentifier: 
   musicConfigs:
-  - Clip: {fileID: 8300000, guid: 46137b5f05745724bb1e043e751fc454, type: 3}
+  - Clip: {fileID: 8300000, guid: 6bd9eb4053ef13a4eae48a279d7e7028, type: 3}
     BPM: 132

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1cbf7b9c3958d8449a2c7103b6e49bb, type: 3}
+  m_Name: WorldConfigTest
+  m_EditorClassIdentifier: 
+  worldSize: {x: 100, y: 100}
+  roomCountRange:
+    min: 20
+    max: 30
+  roomReduction: 0
+  roomConfigs:
+  - weight: 1
+    sizeRange:
+      min: 4
+      max: 5
+    biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+  - weight: 1
+    sizeRange:
+      min: 5
+      max: 10
+    biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+  - weight: 0.2
+    sizeRange:
+      min: 10
+      max: 15
+    biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+  roomPadding:
+    min: 5
+    max: 25
+  corridorBiome: {fileID: 11400000, guid: 9c15992159db4d249aef3c40b8637cc3, type: 2}

@@ -34,7 +34,7 @@
         <key>dataFormat</key>
         <string>unity-texture2d</string>
         <key>textureFileName</key>
-        <filename>DCJ_Skelly_Test_Animation.png</filename>
+        <filename></filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -132,7 +132,7 @@
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename></filename>
+                <filename>../Assets/Sprites/Enemies/Skelly.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -181,22 +181,38 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F1.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F1_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F2.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F2_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F3.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F3_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F4.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F4_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F5.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F5_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F6.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F6_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F7.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F7_n.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F8.png</key>
-            <key type="filename">DCJ_Skelly_Test_Animation/DCJ_Skelly_Test_Animation_F8_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_0.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_0_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_1.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_10.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_10_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_11.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_11_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_1_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_2.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_2_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_3.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_3_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_4.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_4_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_5.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_5_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_6.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_6_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_7.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_7_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_8.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_8_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_9.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Animation_9_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Attack_0.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Attack_0_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Attack_1.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Attack_1_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Defend_0.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Defend_0_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Defend_1.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Defend_1_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -205,16 +221,132 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>14,31,27,62</rect>
+                <rect>22,26,43,51</rect>
                 <key>scale9Paddings</key>
-                <rect>14,31,27,62</rect>
+                <rect>22,26,43,51</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Chest.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Chest_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>7,8,13,15</rect>
+                <key>scale9Paddings</key>
+                <rect>7,8,13,15</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Hips.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Hips_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,4,11,8</rect>
+                <key>scale9Paddings</key>
+                <rect>6,4,11,8</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Jaw.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Jaw_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>3,2,5,3</rect>
+                <key>scale9Paddings</key>
+                <rect>3,2,5,3</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Arm.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Arm_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Arm.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Arm_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,9,15,18</rect>
+                <key>scale9Paddings</key>
+                <rect>8,9,15,18</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Leg.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Leg_n.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Leg.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Leg_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>8,11,16,21</rect>
+                <key>scale9Paddings</key>
+                <rect>8,11,16,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Shield.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Shield_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>11,11,21,21</rect>
+                <key>scale9Paddings</key>
+                <rect>11,11,21,21</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Skull.png</key>
+            <key type="filename">Skelly/DCJ_Skelly_Death_Skull_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,5,8,9</rect>
+                <key>scale9Paddings</key>
+                <rect>4,5,8,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>DCJ_Skelly_Test_Animation</filename>
+            <filename>Skelly</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

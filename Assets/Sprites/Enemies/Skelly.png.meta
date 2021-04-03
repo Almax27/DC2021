@@ -1,0 +1,720 @@
+fileFormatVersion: 2
+guid: be52da761f189c745b8ac506dae7a495
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2765725220807317484
+    second: DCJ_Skelly_Animation_0
+  - first:
+      213: -5235372569930541658
+    second: DCJ_Skelly_Animation_1
+  - first:
+      213: -1718699535547929073
+    second: DCJ_Skelly_Animation_2
+  - first:
+      213: -6754454555147109264
+    second: DCJ_Skelly_Animation_3
+  - first:
+      213: -4840835610408062911
+    second: DCJ_Skelly_Animation_4
+  - first:
+      213: -246742048710836159
+    second: DCJ_Skelly_Animation_5
+  - first:
+      213: 5682123511797046789
+    second: DCJ_Skelly_Animation_6
+  - first:
+      213: -470236072497181094
+    second: DCJ_Skelly_Animation_7
+  - first:
+      213: 1632035584927644229
+    second: DCJ_Skelly_Animation_8
+  - first:
+      213: -4491179330754001503
+    second: DCJ_Skelly_Animation_9
+  - first:
+      213: -7603970756671058860
+    second: DCJ_Skelly_Animation_10
+  - first:
+      213: 6892218631744476026
+    second: DCJ_Skelly_Animation_11
+  - first:
+      213: 6449831351303165269
+    second: DCJ_Skelly_Attack_0
+  - first:
+      213: -2039206317883064039
+    second: DCJ_Skelly_Attack_1
+  - first:
+      213: -6616773394517246598
+    second: DCJ_Skelly_Death_Chest
+  - first:
+      213: 3018868082429860465
+    second: DCJ_Skelly_Death_Hips
+  - first:
+      213: -7222003887975190684
+    second: DCJ_Skelly_Death_Jaw
+  - first:
+      213: 2790385395111652291
+    second: DCJ_Skelly_Death_Left_Arm
+  - first:
+      213: 1063535184307190485
+    second: DCJ_Skelly_Death_Left_Leg
+  - first:
+      213: 9031342795308455378
+    second: DCJ_Skelly_Death_Right_Arm
+  - first:
+      213: 9194212421584603539
+    second: DCJ_Skelly_Death_Right_Leg
+  - first:
+      213: 7187175502953754922
+    second: DCJ_Skelly_Death_Shield
+  - first:
+      213: -8985284261861845481
+    second: DCJ_Skelly_Death_Skull
+  - first:
+      213: -2238379818597512225
+    second: DCJ_Skelly_Defend_0
+  - first:
+      213: 2064401940791482347
+    second: DCJ_Skelly_Defend_1
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 210
+        width: 64
+        height: 98
+      alignment: 9
+      pivot: {x: 0.5390625, y: 0.52040815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce71f845f64d16620800000000000000
+      internalID: 2765725220807317484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 310
+        width: 65
+        height: 97
+      alignment: 9
+      pivot: {x: 0.5307692, y: 0.52577317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a55776c2683857b0800000000000000
+      internalID: -5235372569930541658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 284
+        width: 52
+        height: 99
+      alignment: 9
+      pivot: {x: 0.52884614, y: 0.5151515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e6904e0e3f528e0800000000000000
+      internalID: -1718699535547929073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 409
+        width: 67
+        height: 102
+      alignment: 9
+      pivot: {x: 0.4402985, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07cffe46e5b5342a0800000000000000
+      internalID: -6754454555147109264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 109
+        width: 52
+        height: 99
+      alignment: 9
+      pivot: {x: 0.52884614, y: 0.5151515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140f09109a5e1dcb0800000000000000
+      internalID: -4840835610408062911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 211
+        width: 60
+        height: 97
+      alignment: 9
+      pivot: {x: 0.575, y: 0.52577317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140407bf965639cf0800000000000000
+      internalID: -246742048710836159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 309
+        width: 66
+        height: 98
+      alignment: 9
+      pivot: {x: 0.52272725, y: 0.52040815}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50ede829a35fade40800000000000000
+      internalID: 5682123511797046789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 208
+        width: 63
+        height: 99
+      alignment: 9
+      pivot: {x: 0.45238096, y: 0.5151515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e0b3298c26979f0800000000000000
+      internalID: -470236072497181094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 6
+        width: 53
+        height: 100
+      alignment: 9
+      pivot: {x: 0.4811321, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54ab864b7b726a610800000000000000
+      internalID: 1632035584927644229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 409
+        width: 76
+        height: 102
+      alignment: 9
+      pivot: {x: 0.5197368, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5c4d7a1302ca1c0800000000000000
+      internalID: -4491179330754001503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 180
+        width: 58
+        height: 102
+      alignment: 9
+      pivot: {x: 0.5086207, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cc92662e4497690800000000000000
+      internalID: -7603970756671058860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 108
+        width: 57
+        height: 101
+      alignment: 9
+      pivot: {x: 0.51754385, y: 0.5049505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73557b345416af50800000000000000
+      internalID: 6892218631744476026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Attack_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 5
+        width: 54
+        height: 101
+      alignment: 9
+      pivot: {x: 0.4722222, y: 0.5049505}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5555a9bf077628950800000000000000
+      internalID: 6449831351303165269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Attack_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 409
+        width: 73
+        height: 102
+      alignment: 9
+      pivot: {x: 0.5958904, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91109d678a843b3e0800000000000000
+      internalID: -2039206317883064039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Chest
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 131
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d3b84a7af7c24a0800000000000000
+      internalID: -6616773394517246598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Hips
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 108
+        width: 23
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17a1ffcb68c25e920800000000000000
+      internalID: 3018868082429860465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Jaw
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 202
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46fafba4ab946cb90800000000000000
+      internalID: -7222003887975190684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Left_Arm
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 385
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb61169bb079b620800000000000000
+      internalID: 2790385395111652291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Left_Leg
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 468
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5da72c28d9f62ce00800000000000000
+      internalID: 1063535184307190485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Right_Arm
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 126
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5d4271c66c55d70800000000000000
+      internalID: 9031342795308455378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Right_Leg
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 423
+        width: 32
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 399c8020c77689f70800000000000000
+      internalID: 9194212421584603539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Shield
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 164
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21b2f76a0afdb360800000000000000
+      internalID: 7187175502953754922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Death_Skull
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 388
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71611d5e19bdd4380800000000000000
+      internalID: -8985284261861845481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Defend_0
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 82
+        width: 57
+        height: 96
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53125}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb87181a6dafe0e0800000000000000
+      internalID: -2238379818597512225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DCJ_Skelly_Defend_1
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 310
+        width: 65
+        height: 97
+      alignment: 9
+      pivot: {x: 0.4076923, y: 0.52577317}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be7d082a0aa36ac10800000000000000
+      internalID: 2064401940791482347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
