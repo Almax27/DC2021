@@ -77,11 +77,14 @@ TextureImporter:
   - first:
       213: 2064401940791482347
     second: DCJ_Skelly_Defend_1
+  - first:
+      213: 8921206515315555703
+    second: Skelly_Still
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -181,8 +184,8 @@ TextureImporter:
       name: DCJ_Skelly_Animation_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 210
+        x: 70
+        y: 209
         width: 64
         height: 98
       alignment: 9
@@ -202,7 +205,7 @@ TextureImporter:
       name: DCJ_Skelly_Animation_1
       rect:
         serializedVersion: 2
-        x: 69
+        x: 138
         y: 310
         width: 65
         height: 97
@@ -223,8 +226,8 @@ TextureImporter:
       name: DCJ_Skelly_Animation_2
       rect:
         serializedVersion: 2
-        x: 203
-        y: 284
+        x: 66
+        y: 108
         width: 52
         height: 99
       alignment: 9
@@ -265,8 +268,8 @@ TextureImporter:
       name: DCJ_Skelly_Animation_4
       rect:
         serializedVersion: 2
-        x: 66
-        y: 109
+        x: 172
+        y: 7
         width: 52
         height: 99
       alignment: 9
@@ -286,8 +289,8 @@ TextureImporter:
       name: DCJ_Skelly_Animation_5
       rect:
         serializedVersion: 2
-        x: 135
-        y: 211
+        x: 136
+        y: 112
         width: 60
         height: 97
       alignment: 9
@@ -307,7 +310,7 @@ TextureImporter:
       name: DCJ_Skelly_Animation_6
       rect:
         serializedVersion: 2
-        x: 1
+        x: 70
         y: 309
         width: 66
         height: 98
@@ -329,7 +332,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 208
+        y: 206
         width: 63
         height: 99
       alignment: 9
@@ -349,7 +352,7 @@ TextureImporter:
       name: DCJ_Skelly_Animation_8
       rect:
         serializedVersion: 2
-        x: 57
+        x: 117
         y: 6
         width: 53
         height: 100
@@ -391,8 +394,8 @@ TextureImporter:
       name: DCJ_Skelly_Animation_10
       rect:
         serializedVersion: 2
-        x: 197
-        y: 180
+        x: 1
+        y: 4
         width: 58
         height: 102
       alignment: 9
@@ -412,7 +415,7 @@ TextureImporter:
       name: DCJ_Skelly_Animation_11
       rect:
         serializedVersion: 2
-        x: 135
+        x: 198
         y: 108
         width: 57
         height: 101
@@ -433,7 +436,7 @@ TextureImporter:
       name: DCJ_Skelly_Attack_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 61
         y: 5
         width: 54
         height: 101
@@ -475,8 +478,8 @@ TextureImporter:
       name: DCJ_Skelly_Death_Chest
       rect:
         serializedVersion: 2
-        x: 33
-        y: 131
+        x: 205
+        y: 265
         width: 27
         height: 31
       alignment: 0
@@ -496,8 +499,8 @@ TextureImporter:
       name: DCJ_Skelly_Death_Hips
       rect:
         serializedVersion: 2
-        x: 1
-        y: 108
+        x: 205
+        y: 247
         width: 23
         height: 16
       alignment: 0
@@ -517,8 +520,8 @@ TextureImporter:
       name: DCJ_Skelly_Death_Jaw
       rect:
         serializedVersion: 2
-        x: 120
-        y: 202
+        x: 205
+        y: 380
         width: 10
         height: 6
       alignment: 0
@@ -580,8 +583,8 @@ TextureImporter:
       name: DCJ_Skelly_Death_Right_Arm
       rect:
         serializedVersion: 2
-        x: 1
-        y: 126
+        x: 205
+        y: 298
         width: 30
         height: 36
       alignment: 0
@@ -622,8 +625,8 @@ TextureImporter:
       name: DCJ_Skelly_Death_Shield
       rect:
         serializedVersion: 2
-        x: 1
-        y: 164
+        x: 205
+        y: 336
         width: 42
         height: 42
       alignment: 0
@@ -643,7 +646,7 @@ TextureImporter:
       name: DCJ_Skelly_Death_Skull
       rect:
         serializedVersion: 2
-        x: 203
+        x: 205
         y: 388
         width: 16
         height: 19
@@ -664,8 +667,8 @@ TextureImporter:
       name: DCJ_Skelly_Defend_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 82
+        x: 1
+        y: 108
         width: 57
         height: 96
       alignment: 9
@@ -685,8 +688,8 @@ TextureImporter:
       name: DCJ_Skelly_Defend_1
       rect:
         serializedVersion: 2
-        x: 136
-        y: 310
+        x: 138
+        y: 211
         width: 65
         height: 97
       alignment: 9
@@ -698,6 +701,27 @@ TextureImporter:
       bones: []
       spriteID: be7d082a0aa36ac10800000000000000
       internalID: 2064401940791482347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Still
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 307
+        width: 67
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77db8412f0e7ecb70800000000000000
+      internalID: 8921206515315555703
       vertices: []
       indices: 
       edges: []

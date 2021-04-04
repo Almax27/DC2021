@@ -24,4 +24,6 @@ public class WorldConfig : ScriptableObject
     public MinMaxInt roomPadding = new MinMaxInt(2,2);
 
     public WorldBiomeConfig corridorBiome;
+
+    public Light ambientRoomLightPrefab;
 }

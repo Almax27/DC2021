@@ -10,7 +10,10 @@ public class GameConfig : ScriptableObject
     {
         public AudioClip Clip;
         public float BPM;
+        public float TimeOffset;
     }
 
-    public List<MusicConfig> musicConfigs = new List<MusicConfig>();    
+    public PlayerBehaviour playerPrefab;
+
+    public List<MusicConfig> musicConfigs = new List<MusicConfig>();
 }

@@ -56,7 +56,7 @@ public class WorldGeneratorBehaviour : MonoBehaviour
                             Gizmos.color = Color.magenta;
                             break;
                     }
-                    Vector2 pos = World.TilePosWS(i);
+                    Vector2 pos = World.TilePos(i);
                     Gizmos.DrawCube(new Vector3(pos.x + 0.5f, 0.5f * World.tiles[i].height, pos.y + 0.5f),
                                     new Vector3(0.8f, World.tiles[i].height, 0.8f));
                 }
@@ -82,19 +82,12 @@ public class WorldGeneratorBehaviour : MonoBehaviour
     {
         gameObject.isStatic = true;
 
-        World = new World(seed);
+        World = new World(seed, config);
         yield return worldGenerator.Generate(World, config);
 
         if (worldRoot)
         {
-            if (Application.isPlaying)
-            {
-                Destroy(worldRoot);
-            }
-            else
-            {
-                DestroyImmediate(worldRoot);
-            }
+            DestroyImmediate(worldRoot);
         }
         worldRoot = new GameObject("WorldRoot");
         worldRoot.transform.parent = gameObject.transform;
@@ -103,11 +96,18 @@ public class WorldGeneratorBehaviour : MonoBehaviour
         if (tilePrefab == null)
             yield break;
 
-        for(int i = 0; i < World.tiles.Length; i++)
+
+        //Build tiles
+#if UNITY_EDITOR
+        worldGenerator.Status = "Building Tiles...";
+        yield return null;
+#endif
+
+        for (int i = 0; i < World.tiles.Length; i++)
         {
             if(World.tiles[i].type != WorldTileType.None)
             {
-                Vector2 p = World.TilePosWS(i);
+                Vector2 p = World.TilePos(i);
                 var newTile = Instantiate<GameObject>(tilePrefab, new Vector3(p.x, 0.0f, p.y), Quaternion.identity, gameObject.transform);
                 newTile.transform.parent = worldRoot.transform;
                 worldRoot.isStatic = true;
@@ -117,6 +117,26 @@ public class WorldGeneratorBehaviour : MonoBehaviour
                 {
                     tileBehaviour.PostGenerate(i, World, config);
                 }
+            }
+        }
+
+        //Build ambient lights
+        foreach(var room in World.rooms)
+        {
+            Vector3 p = new Vector3(room.rect.center.x, 0, room.rect.center.y);
+            float radius = (room.rect.max - room.rect.min).magnitude / 2 + 1.0f;
+            Color color = room.biome.ambientColor;
+            color = new Color(Random.value, Random.value, Random.value);
+
+            for (int i = -1; i < 2; i += 2)
+            {
+                var lightGO = Instantiate<GameObject>(config.ambientRoomLightPrefab.gameObject, worldRoot.transform);
+                var light = lightGO.GetComponent<Light>();
+                lightGO.isStatic = true;
+                light.transform.position = new Vector3(room.rect.center.x, 0.5f * room.height + (i * radius * 0.5f), room.rect.center.y);
+                light.range = radius;
+                light.color = color;
+                if (i == -1) light.cullingMask &= ~(1 << 3);
             }
         }
     }

@@ -1,0 +1,26 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://www.codeandweb.com/texturepacker/unity
+#
+# $TexturePacker:SmartUpdate:18f526987c2566863fb9c2c04e25ce64:a67b1a0c45e0599cb5cc902c30393c29:05b420b64124540fb5a7a64bf993b691$
+#
+:format=40300
+:texture=Props.png
+:size=64x128
+:normalmap=Props_n.png
+:pivotpoints=enabled
+:borders=disabled
+:alphahandling=ClearTransparentPixels
+
+DCJ_Ceiling_Torch_1;1;6;16;50; 0.5;0.5; 0;0;0;0; 4;16;0;0;0;0;50;16;50; 2;1;2;3;0;1;3
+DCJ_Grass_Tuft_1;43;29;20;19; 0.5;0.5; 0;0;0;0; 4;20;0;0;0;0;19;20;19; 2;1;2;3;0;1;3
+DCJ_Grass_Tuft_2;29;105;25;22; 0.5;0.5; 0;0;0;0; 4;25;0;0;0;0;22;25;22; 2;1;2;3;0;1;3
+DCJ_Grass_Tuft_3;19;13;16;19; 0.5;0.5; 0;0;0;0; 4;16;0;0;0;0;19;16;19; 2;1;2;3;0;1;3
+DCJ_Grass_Tuft_4;29;81;23;22; 0.5;0.5; 0;0;0;0; 4;23;0;0;0;0;22;17;22; 2;1;2;3;0;1;3
+DCJ_Ground_Torch_1;1;58;26;69; 0.5;0.5; 0;0;0;0; 4;26;0;0;0;0;69;26;69; 2;1;2;3;0;1;3
+DCJ_Rock_1;19;3;15;8; 0.5;0.5; 0;0;0;0; 4;15;0;0;0;0;8;15;8; 2;1;2;3;0;1;3
+DCJ_Rock_2;29;50;23;10; 0.5;0.5; 0;0;0;0; 4;23;0;0;0;0;10;23;10; 2;1;2;3;0;1;3
+DCJ_Rock_3;19;34;22;14; 0.5;0.5; 0;0;0;0; 4;22;0;0;0;0;14;22;14; 2;1;2;3;0;1;3
+DCJ_Skull_1;29;62;23;17; 0.5;0.5; 0;0;0;0; 4;23;0;0;0;0;17;23;17; 2;1;2;3;0;1;3

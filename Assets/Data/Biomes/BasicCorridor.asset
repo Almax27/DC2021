@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9301c551455f9e479239a1b893c47f0, type: 3}
   m_Name: BasicCorridor
   m_EditorClassIdentifier: 
+  spriteMaterial: {fileID: 2100000, guid: beff339e35cf5e245abfba18e90c13b4, type: 2}
   ceilingSprites:
-  - {fileID: 21300000, guid: 08c9a68b8663f39439306217ae6a2b5e, type: 3}
+  - {fileID: 6561078734276518742, guid: d96bc16134e099541bbd098b22c1b141, type: 3}
   groundSprites:
-  - {fileID: 21300000, guid: a693382d9c8ba0444a03fbddb12c56df, type: 3}
+  - {fileID: -5155886937765987183, guid: d96bc16134e099541bbd098b22c1b141, type: 3}
   wallSprites:
-  - {fileID: 21300000, guid: 0c197615d8c5a9044acf9ce34157307a, type: 3}
+  - {fileID: 6348780985227160757, guid: d96bc16134e099541bbd098b22c1b141, type: 3}
+  randomiseCeilingRotation: 1
+  randomiseGroundRotation: 1
+  ambientColor: {r: 1, g: 1, b: 1, a: 1}

@@ -17,6 +17,7 @@ public class WorldTileBehaviour : MonoBehaviour
     {
         if(renderer && sprites.Length > 0)
         {
+            renderer.sharedMaterial = tile.biome.spriteMaterial;
             renderer.sprite = sprites[Random.Range(0, sprites.Length - 1)];
         }
     }
@@ -31,6 +32,21 @@ public class WorldTileBehaviour : MonoBehaviour
 
     public void PostGenerate(int tileIndex, World world, WorldConfig config)
     {
+        gameObject.isStatic = true;
+
+        ceilingFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        groundFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        forwardFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
+        backFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
+        leftFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
+        rightFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.TwoSided;
+
+        foreach (Renderer renderer in GetComponentsInChildren<Renderer>())
+        {
+            renderer.gameObject.isStatic = true;
+            renderer.receiveShadows = true;
+        }
+
         tile = world.tiles[tileIndex];
 
         if (tile.biome == null)

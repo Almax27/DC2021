@@ -57,7 +57,11 @@ public class WorldGenerator
 
     public float Speed { get; set; }
     public float WaitScale => Mathf.Clamp01(1.0f - (0.1f + Speed * 0.9f));
-    public string Status { get; private set; }
+
+#if UNITY_EDITOR
+    public string Status { get; set; }
+#endif
+
     public bool IsRunning { get; private set; }
     public bool IsCanceled { get; private set; }
 
@@ -92,7 +96,7 @@ public class WorldGenerator
 
         SpanningTree.Clear();
 
-        world.InitTilesFromBounds(new RectInt(-config.worldSize / 2, config.worldSize));
+        world.InitTilesFromBounds(new RectInt(Vector2Int.zero, config.worldSize));
 
         yield return CreateRooms(world, config);
 
@@ -110,7 +114,6 @@ public class WorldGenerator
         int roomCount = Random.Range(config.roomCountRange.min, config.roomCountRange.max);
 
         Debug.Log($"Creating {roomCount} rooms...");
-        Status = "Creating Rooms";
 
         world.rooms.Clear();
         world.rooms.Capacity = roomCount;
@@ -142,7 +145,10 @@ public class WorldGenerator
             for (int j = 0; j < roomsToCreate; j++)
             {
                 roomConfigIndices.Add(i);
+#if UNITY_EDITOR
                 Status = $"Building Configs {roomConfigIndices.Count * 100 / roomCount}%";
+                if (ShouldWait) yield return Wait(0.1f);
+#endif
             }
         }
 
@@ -151,10 +157,11 @@ public class WorldGenerator
 
         //Layout rooms
         Queue<PendingRoom> workingSet = new Queue<PendingRoom>();
+        RectInt roomRect = new RectInt((int)world.Bounds.center.x, (int)world.Bounds.center.y, 0, 0);
         Direction lastDirection = Direction.NONE;
         foreach (var iRoomConfig in roomConfigIndices)
         {
-            RectInt roomRect = new RectInt(0, 0, roomConfigs[iRoomConfig].sizeRange.Random, roomConfigs[iRoomConfig].sizeRange.Random);
+            roomRect.size = new Vector2Int(roomConfigs[iRoomConfig].sizeRange.Random, roomConfigs[iRoomConfig].sizeRange.Random);
 
             //Select location of next room
             PendingRoom pendingRoom = new PendingRoom();
@@ -193,23 +200,27 @@ public class WorldGenerator
             {
                 workingSet.Enqueue(new PendingRoom(world.rooms.Count - 1, nextDirs));
             }
-
+#if UNITY_EDITOR
             Status = $"Building rooms {world.rooms.Count * 100 / roomConfigIndices.Count}%";
             if(ShouldWait) yield return Wait(0.1f);
+#endif
         }
 
         int numberOfRoomsToCull = Mathf.CeilToInt(config.roomReduction * world.rooms.Count);
         if (numberOfRoomsToCull > 0)
         {
+#if UNITY_EDITOR
             Status = $"Removing rooms: shuffling";
+#endif
             world.rooms.Shuffle();
 
             for(int i = 0; i < numberOfRoomsToCull; i++)
             {
                 world.rooms.RemoveAt(world.rooms.Count - 1);
-
+#if UNITY_EDITOR
                 Status = $"Removing {numberOfRoomsToCull} rooms {i * 100 / numberOfRoomsToCull}%";
                 if (ShouldWait) yield return Wait(0.1f);
+#endif
             }
         }
     }
@@ -260,20 +271,22 @@ public class WorldGenerator
             points.Add(room.rect.center);
         }
 
+#if UNITY_EDITOR
         Status = "Corridors: Voronoi...";
+        yield return null;
+#endif
 
         Voronoi v = new Voronoi(points, new Rect(world.Bounds.position, world.Bounds.size));
 
-        yield return null;
-
+#if UNITY_EDITOR
         Status = "Corridors: Min Spanning Tree...";
+        yield return null;
+#endif
 
         SpanningTree = v.SpanningTree(KruskalType.MINIMUM);
 
         world.corridors.Clear();
         world.corridors.Capacity = SpanningTree.Count;
-
-        yield return null;
 
         //Build room edge geo
         List<List<LineSegment>> roomEdges = new List<List<LineSegment>>();
@@ -297,11 +310,15 @@ public class WorldGenerator
         }
 
         Vector2 intersection = new Vector2();
+        List<int> roomsIntersected = new List<int>(2);
         List<Vector2Int> roomIntersections = new List<Vector2Int>(2);
         foreach (var connection in SpanningTree)
         {
+#if UNITY_EDITOR
             Status = $"Building Corridors {world.corridors.Count * 100 / SpanningTree.Count}%";
-
+            if (ShouldWait) yield return Wait(0.1f);
+#endif
+            roomsIntersected.Clear();
             roomIntersections.Clear();
             for (int iRoom = 0; iRoom < roomEdges.Count; iRoom++)
             {
@@ -324,6 +341,7 @@ public class WorldGenerator
                             }
                         }
 
+                        roomsIntersected.Add(iRoom);
                         roomIntersections.Add(bestTile);
 
                         break;
@@ -338,9 +356,8 @@ public class WorldGenerator
             Vector2Int distance = roomIntersections[1] - roomIntersections[0];
             Vector2Int distanceAbs = new Vector2Int(Mathf.Abs(distance.x), Mathf.Abs(distance.y));
             Vector2Int tile = roomIntersections[0]; //start
-            //tile.x++; tile.y++; //HACK, not sure why I have to do this...
 
-            World.Corridor newCorridor = new World.Corridor(distanceAbs.x + distanceAbs.y, config.corridorBiome);
+            World.Corridor newCorridor = new World.Corridor(distanceAbs.x + distanceAbs.y, config.corridorBiome, roomsIntersected.ToArray());
             newCorridor.tiles.Add(tile);
 
             if (distanceAbs.x > distanceAbs.y)
@@ -376,34 +393,45 @@ public class WorldGenerator
 
             world.corridors.Add(newCorridor);
 
-            if (ShouldWait) yield return Wait(0.1f);
+
+            world.rooms[roomsIntersected[0]].connectedRooms.Add(world.rooms[roomsIntersected[1]]);
+            world.rooms[roomsIntersected[1]].connectedRooms.Add(world.rooms[roomsIntersected[0]]);
+
+            world.rooms[roomsIntersected[0]].exitTiles.Add(roomIntersections[0]);
+            world.rooms[roomsIntersected[1]].exitTiles.Add(roomIntersections[1]);
         }
     }
 
     IEnumerator CreateTiles(World world, WorldConfig config)
     {
-        foreach(var room in world.rooms)
+#if UNITY_EDITOR
+        Status = $"Building room tiles";
+        if (ShouldWait) yield return Wait(0.1f);
+#endif
+        foreach (var room in world.rooms)
         {
             foreach(var p in room.rect.allPositionsWithin)
             {
-                int iTile = world.TileIndexWS(p.x, p.y);
+                int iTile = world.TileIndex(p.x, p.y);
                 world.tiles[iTile].type = WorldTileType.Room;
                 world.tiles[iTile].height = room.height;
                 world.tiles[iTile].biome = room.biome;
             }
         }
 
+#if UNITY_EDITOR
+        Status = $"Building corridor tiles";
+        if (ShouldWait) yield return Wait(0.1f);
+#endif
         foreach (var corridor in world.corridors)
         {
             foreach(var p in corridor.tiles)
             {
-                int iTile = world.TileIndexWS(p.x, p.y);
+                int iTile = world.TileIndex(p.x, p.y);
                 world.tiles[iTile].type = WorldTileType.Corridor;
                 world.tiles[iTile].height = corridor.height;
                 world.tiles[iTile].biome = corridor.biome;
             }
         }
-
-        yield return null;
     }
 }

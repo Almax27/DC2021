@@ -2,8 +2,14 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/Sprites/Enemies/Skelly.tpsheet
+- Assets/Sprites/Props/Props.tpsheet
+- Assets/Sprites/World/World.tpsheet
 textureFileNames:
 - Assets/Sprites/Enemies/Skelly.png
+- Assets/Sprites/Props/Props.png
+- Assets/Sprites/World/World.png
 normalmapFileNames:
 - Assets/Sprites/Enemies/Skelly_n.png
+- Assets/Sprites/Props/Props_n.png
+- Assets/Sprites/World/World_n.png
 enableDebugOutput: 0
