@@ -9,7 +9,7 @@ using Unity.EditorCoroutines.Editor;
  public class WorldGeneratorBehaviourEditor : Editor
 {
     Tool LastTool = Tool.None;
-    bool wasGenerating = false; 
+    bool wasGenerating = false;
 
     public void StartGeneration(WorldGeneratorBehaviour behaviour)
     {
@@ -41,7 +41,7 @@ using Unity.EditorCoroutines.Editor;
 
         //Repaint world
         bool isGenerating = behaviour.worldGenerator.IsRunning;
-        if (isGenerating || isGenerating != wasGenerating)
+        if (isGenerating || isGenerating != wasGenerating || behaviour.pathFinder.IsProcessing)
         {
             wasGenerating = isGenerating;
             EditorWindow.GetWindow<SceneView>().Repaint();
@@ -72,5 +72,34 @@ using Unity.EditorCoroutines.Editor;
             }
         }
         GUILayout.EndHorizontal();
+
+        GUILayout.BeginVertical();
+        if(behaviour.World != null)
+        {
+            if (!behaviour.pathFinder.IsProcessing)
+            {
+                if (GUILayout.Button("Pathfind"))
+                {
+                    behaviour.pathResults.Clear();
+
+                    WorldPathFinder.DebugRenderCallback debugCallback = () =>
+                    {
+                        EditorWindow.GetWindow<SceneView>().Repaint();
+                    };
+
+                    EditorCoroutineUtility.StartCoroutine(behaviour.pathFinder.CalculatePathTo(behaviour, behaviour.pathStart, behaviour.pathEnd, results =>
+                    {
+                        Debug.Log($"Path result: count={results.Count}");
+                        behaviour.pathResults = results;
+                    },
+                    behaviour.debugPathing ? debugCallback : null), this);
+                }
+            }
+            else
+            {
+                GUILayout.Label("Pathfinding...", GUILayout.ExpandWidth(false));
+            }
+        }
+        GUILayout.EndVertical();
     }
 }

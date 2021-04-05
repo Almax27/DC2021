@@ -7,20 +7,36 @@ using UnityEditor;
 #endif
 
 [ExecuteInEditMode]
-public class LookAtBehaviour : MonoBehaviour
+public class LookAtBehaviour : MonoBehaviour, ITickable
 {
     public bool lockToY = false;
+
+    Renderer defaultRenderer;
 
 #if UNITY_EDITOR
     void OnRenderObject()
     {
-        LookAt(SceneView.lastActiveSceneView.camera);
+        if (!Application.isPlaying && SceneView.lastActiveSceneView)
+        {
+            LookAt(SceneView.lastActiveSceneView.camera);
+        }
     }
 #endif
 
-    private void LateUpdate()
+    private void Awake()
     {
-        LookAt(Camera.main);
+        defaultRenderer = GetComponentInChildren<Renderer>();
+        TickManagerBehaviour.RegisterLate(this);
+    }
+
+    void OnEnable()
+    {
+        //TickManagerBehaviour.RegisterLate(this);
+    }
+
+    void OnDisable()
+    {
+        //TickManagerBehaviour.UnregisterLate(this);
     }
 
     void LookAt(Camera camera)
@@ -30,12 +46,24 @@ public class LookAtBehaviour : MonoBehaviour
         if (lockToY)
         {
             Vector3 dir = camera.transform.position - transform.position;
-            Vector3 rot = Quaternion.LookRotation(dir.normalized).eulerAngles;
-            transform.rotation = Quaternion.Euler(0, rot.y, 0);
+            dir.y = 0;
+            transform.rotation = Quaternion.LookRotation(dir);
         }
         else
         {
             transform.LookAt(camera.transform);
         }
+    }
+
+    public void Tick()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void LateTick()
+    {
+        if (!defaultRenderer || !defaultRenderer.isVisible) return;
+
+        LookAt(Camera.main);
     }
 }

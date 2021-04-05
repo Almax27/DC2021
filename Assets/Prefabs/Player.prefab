@@ -44,11 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0816753512e6434c82dd51436d0df14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 3
+  destroyOnDeath: 1
+  deathNuggetPrefabs: []
   moveSmoothTime: 0.1
   moveMaxSpeed: 10
   turnSmoothTime: 0.05
   turnMaxSpeed: 420
-  offsetInTile: -0.45
+  tileOffset: {x: 0, y: 0.5, z: -0.45}
+  beatGrace: 0.1
+  humanResponseTime: 0.1
+  beatsToSkipOnMiss: 1
 --- !u!1 &2613556273290048712
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,8 +96,8 @@ Camera:
   m_GameObject: {fileID: 2613556273290048712}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

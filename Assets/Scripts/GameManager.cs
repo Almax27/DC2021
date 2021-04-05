@@ -27,11 +27,16 @@ public class GameManager : MonoBehaviour
     //Normalised music time relative to BPM. I.e. 0-1 per beat
     public float MusicTime { get; private set; }
 
+    public float BeatDuration => musicConfig.BPM / 60.0f;
+
     WorldGeneratorBehaviour worldGeneratorBehaviour;
     public World World => worldGeneratorBehaviour ? worldGeneratorBehaviour.World : null;
+    public WorldGeneratorBehaviour WorldGen => worldGeneratorBehaviour;
 
     float previousMusicTime = 0.0f;
     public UnityEvent onBeatEvent;
+
+    public PlayerBehaviour Player { get; private set; }
 
     private void Awake()
     {
@@ -55,8 +60,10 @@ public class GameManager : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.color = MusicTime % 2.0f < 1.0f ? Color.magenta : Color.grey;
-        GUI.DrawTexture(Rect.MinMaxRect(0, 0, 20, 20), Texture2D.whiteTexture);
+        GUI.color = Color.white;
+        GUI.Label(new Rect(0, 0, 100, 20), $"Music = {MusicTime:F2}");
+        GUI.color = (MusicTime + 0.1f) % 2.0f < 1.0f ? Color.magenta : Color.white;
+        GUI.Label(new Rect(0, 30, 100, 20), $"Beat = {MusicTime%1.0f:F2}");
     }
 
     IEnumerator LoadNewWorld()
@@ -74,11 +81,16 @@ public class GameManager : MonoBehaviour
         GameState = GameState.Playing;
     }
 
+    public float SecondsToMusicTime(float seconds)
+    {
+        return seconds * (musicConfig.BPM / 60.0f);
+    }
+
     void Update()
     {
         if (musicSource && musicSource.isPlaying)
         {
-            MusicTime = (musicConfig.TimeOffset+ musicSource.time) * (musicConfig.BPM / 60.0f);
+            MusicTime = (musicConfig.TimeOffset+ musicSource.time) * BeatDuration;
             musicSource.pitch = GameSpeed;
 
             if(MusicTime % 1.0f < previousMusicTime % 1.0f)
@@ -107,7 +119,7 @@ public class GameManager : MonoBehaviour
     public IEnumerator SpawnPlayer()
     {
         var playerGO = Instantiate<GameObject>(gameConfig.playerPrefab.gameObject);
-        playerGO.SendMessage("OnSpawn", this);
+        Player = playerGO.GetComponent<PlayerBehaviour>();
 
         //Find rooms furthest from each other
         int[] bestRoomPair = new int[2];
@@ -134,7 +146,7 @@ public class GameManager : MonoBehaviour
         var spawnRoomExitTile = spawnRoom.exitTiles[0];
         var spawnHeading = WorldAgentBehaviour.BestHeadingForDirection(spawnRoomExitTile - spawnTile);
 
-        playerGO.GetComponent<PlayerBehaviour>().WarpTo(spawnTile, spawnHeading);
+        Player.WarpTo(spawnTile, spawnHeading);
 
         yield return null;
     }

@@ -25,6 +25,8 @@ enum PlayerActionAccuracy
 
 public class PlayerBehaviour : WorldAgentBehaviour
 {
+    public float beatGrace = 0.1f;
+    public float humanResponseTime = 0.15f;
     public int beatsToSkipOnMiss = 1;
     int beatsToSkip = 0;
 
@@ -32,15 +34,17 @@ public class PlayerBehaviour : WorldAgentBehaviour
     PlayerActionAccuracy pendingActionAccuracy = PlayerActionAccuracy.Miss;
     bool graceUsed = false;
 
-    private void Awake()
+    private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        gameManager.onBeatEvent.AddListener(OnBeat);
-        Debug.Assert(gameManager, "Failed to find GameManager");
+        GameManager.onBeatEvent.AddListener(OnBeat);
+        Debug.Log($"Human response time = {GameManager.SecondsToMusicTime(humanResponseTime)}");
     }
 
     void OnBeat()
     {
+        IsDefending = false;
+        IsAttacking = false;
+
         TryConsumePendingAction();
         beatsToSkip--;
     }
@@ -65,8 +69,10 @@ public class PlayerBehaviour : WorldAgentBehaviour
                 TurnClockwise();
                 break;
             case PlayerAction.Attack:
+                Attack();
                 break;
             case PlayerAction.Defend:
+                Defend();
                 break;
         }
         pendingAction = PlayerAction.None;
@@ -74,9 +80,7 @@ public class PlayerBehaviour : WorldAgentBehaviour
 
     void RequestAction(PlayerAction action)
     {
-        float grace = 0.1f;
-
-        if (graceUsed && gameManager.MusicTime < grace)
+        if (graceUsed && GameManager.MusicTime < beatGrace)
         {
             Debug.LogWarning($"{action}: Pressed while locked!");
             return;
@@ -91,14 +95,11 @@ public class PlayerBehaviour : WorldAgentBehaviour
         graceUsed = false;
         pendingAction = action;
 
-        float beatTime = gameManager.MusicTime % 1.0f;
-        if (beatTime < grace)
-        {
-            graceUsed = true;
-            pendingActionAccuracy = PlayerActionAccuracy.Perfect;
-            TryConsumePendingAction();
-        }
-        else if (beatTime < 0.5f)
+        float responseTimeOffet = GameManager.SecondsToMusicTime(humanResponseTime);
+
+        float beatTime = (GameManager.MusicTime - responseTimeOffet) % 1.0f;
+        beatTime += beatGrace;
+        if (beatTime < 0.5f)
         {
             pendingActionAccuracy = PlayerActionAccuracy.Miss;
             beatsToSkip = beatsToSkipOnMiss + 1;
@@ -111,42 +112,77 @@ public class PlayerBehaviour : WorldAgentBehaviour
         {
             pendingActionAccuracy = PlayerActionAccuracy.Good;
         }
+        else if(beatTime > 1.0f)
+        {
+            graceUsed = true;
+            pendingActionAccuracy = PlayerActionAccuracy.Perfect;
+        }
         else
         {
             pendingActionAccuracy = PlayerActionAccuracy.Perfect;
         }
 
-        Debug.Log($"{pendingAction} : {pendingActionAccuracy} : {beatTime:F2}" + (graceUsed ? " : (grace)" : ""));
-    }
+        //if we've missed the beat, consume immediately
+        if(GameManager.MusicTime % 1.0f < beatTime && pendingActionAccuracy != PlayerActionAccuracy.Miss)
+        {
+            Debug.Log("Grace!");
+            TryConsumePendingAction();
+        }
 
-        // Start is called before the first frame update
-    void Start()
-    {
-        
+        Debug.Log($"{pendingAction} : {pendingActionAccuracy} : {GameManager.MusicTime%1.0f:F2}: {beatTime:F2}" + (graceUsed ? " : (grace)" : ""));
     }
 
     // Update is called once per frame
     protected override void Update()
     {
-        if (gameManager.World == null) return;
+        if (GameManager.World == null) return;
 
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             RequestAction(PlayerAction.MoveForward);
         }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             RequestAction(PlayerAction.MoveBack);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             RequestAction(PlayerAction.TurnLeft);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             RequestAction(PlayerAction.TurnRight);
         }
+        else if (Input.GetKeyDown(KeyCode.J))
+        {
+            RequestAction(PlayerAction.Attack);
+        }
+        else if (Input.GetKeyDown(KeyCode.K))
+        {
+            RequestAction(PlayerAction.Defend);
+        }
 
         base.Update();
+    }
+
+    bool Attack()
+    {
+        IsAttacking = true;
+
+        Vector2Int attackTile = TilePosition + HeadingDirection(TileHeading);
+        foreach (var otherAgent in FindObjectsOfType<WorldAgentBehaviour>())
+        {
+            if (otherAgent.TilePosition == attackTile)
+            {
+                otherAgent.TakeDamage(1, this);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void Defend()
+    {
+        IsDefending = true;
     }
 }

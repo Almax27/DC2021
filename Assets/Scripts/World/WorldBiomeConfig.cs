@@ -10,6 +10,10 @@ public class WorldBiomeConfig : ScriptableObject
     public Sprite[] groundSprites = new Sprite[0];
     public Sprite[] wallSprites = new Sprite[0];
 
+    public Material propsMaterial = null;
+    public MinMaxInt grassPerTile = new MinMaxInt(5,20);
+    public Sprite[] grassSprites = new Sprite[0];
+
     public bool randomiseCeilingRotation = true;
     public bool randomiseGroundRotation = true;
 

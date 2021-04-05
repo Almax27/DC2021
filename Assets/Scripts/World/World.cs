@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public partial class World
@@ -48,6 +49,11 @@ public partial class World
         return new Tile();
     }
 
+    public bool IsTilePosValid(int x, int y)
+    {
+        return x >= 0 && y >= 0 && x < bounds.width && y < bounds.height;
+    }
+
     public Tile TileAtOffset(int index, int xOffset, int yOffset)
     {
         Vector2Int p = TilePos(index);        
@@ -58,5 +64,18 @@ public partial class World
         }
         return new Tile();
     }    
+
+    public int NeighouringTileCount(int index)
+    {
+        int count = 0;
+        for(int x = -1; x < 2; x += 2)
+        {
+            for(int y = -1; y < 2; y += 2)
+            {
+                count += TileAtOffset(index, x, y).type != WorldTileType.None ? 1 : 0;
+            }
+        }
+        return count;
+    }
 }
 

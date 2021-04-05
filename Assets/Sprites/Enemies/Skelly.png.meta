@@ -80,6 +80,171 @@ TextureImporter:
   - first:
       213: 8921206515315555703
     second: Skelly_Still
+  - first:
+      213: -3671112335712277051
+    second: Skelly_Attack_00
+  - first:
+      213: 4923640012799655275
+    second: Skelly_Attack_01
+  - first:
+      213: 9050127189677811869
+    second: Skelly_Attack_02
+  - first:
+      213: -786264682055193392
+    second: Skelly_Attack_03
+  - first:
+      213: 6722306225885039459
+    second: Skelly_Attack_04
+  - first:
+      213: 7645047421897027310
+    second: Skelly_Attack_05
+  - first:
+      213: -9093268577817738587
+    second: Skelly_Defend_00
+  - first:
+      213: -9009821679173175112
+    second: Skelly_Defend_01
+  - first:
+      213: -4602982050834286148
+    second: Skelly_Defend_02
+  - first:
+      213: 1368483906584096117
+    second: Skelly_Defend_03
+  - first:
+      213: 4673854770198643852
+    second: Skelly_Defend_04
+  - first:
+      213: -8651443005164503114
+    second: Skelly_Defend_05
+  - first:
+      213: -7713255866464247302
+    second: Skelly_Defend_06
+  - first:
+      213: -1706816023191468934
+    second: Skelly_Defend_07
+  - first:
+      213: 2113067813447542092
+    second: Skelly_Defend_08
+  - first:
+      213: -4803940487094204119
+    second: Skelly_Defend_09
+  - first:
+      213: 8312789557294238536
+    second: Skelly_Defend_10
+  - first:
+      213: -620284934221260163
+    second: Skelly_Defend_11
+  - first:
+      213: 5161684835626331896
+    second: Skelly_Enter_Defend_00
+  - first:
+      213: -811086714690890658
+    second: Skelly_Enter_Defend_01
+  - first:
+      213: -7989312585356765700
+    second: Skelly_Enter_Defend_02
+  - first:
+      213: -7115199341161420809
+    second: Skelly_Enter_Defend_03
+  - first:
+      213: 7509092502724278457
+    second: Skelly_Enter_Defend_04
+  - first:
+      213: -6952483220525064082
+    second: Skelly_Enter_Defend_05
+  - first:
+      213: -8513910256942680837
+    second: Skelly_idle_00
+  - first:
+      213: -5959364595792124406
+    second: Skelly_idle_01
+  - first:
+      213: 4246752872907588362
+    second: Skelly_idle_02
+  - first:
+      213: -214111539603329906
+    second: Skelly_idle_03
+  - first:
+      213: -4996613976748016803
+    second: Skelly_idle_04
+  - first:
+      213: 3479235251480998675
+    second: Skelly_idle_05
+  - first:
+      213: -3491418904157282777
+    second: Skelly_idle_06
+  - first:
+      213: 6113249755554602106
+    second: Skelly_idle_07
+  - first:
+      213: -5614819628806045833
+    second: Skelly_idle_08
+  - first:
+      213: -4666194454291807745
+    second: Skelly_idle_09
+  - first:
+      213: -7801349745974421825
+    second: Skelly_idle_10
+  - first:
+      213: -800474612138561185
+    second: Skelly_idle_11
+  - first:
+      213: -6322499798124250565
+    second: Skelly_Exit_Defend_00
+  - first:
+      213: 9212012571442467882
+    second: Skelly_Exit_Defend_01
+  - first:
+      213: 5335545713370351167
+    second: Skelly_Exit_Defend_02
+  - first:
+      213: -1248995131533205459
+    second: Skelly_Exit_Defend_03
+  - first:
+      213: 9158219334550318002
+    second: Skelly_Exit_Defend_04
+  - first:
+      213: -7196367955441441096
+    second: Skelly_Exit_Defend_05
+  - first:
+      213: 1069845648473386337
+    second: Skelly_Nugget_Arm_1
+  - first:
+      213: 5678131473122414794
+    second: Skelly_Nugget_Arm_2
+  - first:
+      213: -6434053850571435513
+    second: Skelly_Nugget_Arm_3
+  - first:
+      213: -3493390026301192577
+    second: Skelly_Nugget_Arm_4
+  - first:
+      213: -7730553326001352492
+    second: Skelly_Nugget_Chest
+  - first:
+      213: -6343294961348567955
+    second: Skelly_Nugget_Hips
+  - first:
+      213: 3247746606362659180
+    second: Skelly_Nugget_Jaw
+  - first:
+      213: -670499562522666629
+    second: Skelly_Nugget_Leg_1
+  - first:
+      213: -7959290798825974797
+    second: Skelly_Nugget_Leg_2
+  - first:
+      213: -7620600048397513301
+    second: Skelly_Nugget_Leg_3
+  - first:
+      213: -1726286747260562435
+    second: Skelly_Nugget_Leg_4
+  - first:
+      213: 7173256423884477153
+    second: Skelly_Nugget_Shield
+  - first:
+      213: 6700769614964162303
+    second: Skelly_Nugget_Skull
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -146,7 +311,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -158,7 +323,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -170,7 +335,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -181,307 +346,895 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_0
+      name: Skelly_Attack_00
       rect:
         serializedVersion: 2
-        x: 70
-        y: 209
-        width: 64
-        height: 98
-      alignment: 9
-      pivot: {x: 0.5390625, y: 0.52040815}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ce71f845f64d16620800000000000000
-      internalID: 2765725220807317484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DCJ_Skelly_Animation_1
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 310
-        width: 65
-        height: 97
-      alignment: 9
-      pivot: {x: 0.5307692, y: 0.52577317}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6a55776c2683857b0800000000000000
-      internalID: -5235372569930541658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DCJ_Skelly_Animation_2
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 108
-        width: 52
+        x: 296
+        y: 825
+        width: 68
         height: 99
       alignment: 9
-      pivot: {x: 0.52884614, y: 0.5151515}
+      pivot: {x: 0.52205884, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0e6904e0e3f528e0800000000000000
-      internalID: -1718699535547929073
+      spriteID: 5cda053f7c69d0dc0800000000000000
+      internalID: -3671112335712277051
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_3
+      name: Skelly_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 728
+        width: 68
+        height: 99
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6db2dc4188445440800000000000000
+      internalID: 4923640012799655275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 724
+        width: 68
+        height: 99
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98a9d8bab2889d70800000000000000
+      internalID: 9050127189677811869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 822
+        width: 68
+        height: 99
+      alignment: 9
+      pivot: {x: 0.52205884, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dc2aaeff60a615f0800000000000000
+      internalID: -786264682055193392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Attack_04
       rect:
         serializedVersion: 2
         x: 154
-        y: 409
-        width: 67
+        y: 925
+        width: 70
+        height: 98
+      alignment: 9
+      pivot: {x: 0.53571427, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b464965ed6a4d50800000000000000
+      internalID: 6722306225885039459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 921
+        width: 78
         height: 102
       alignment: 9
-      pivot: {x: 0.4402985, y: 0.5}
+      pivot: {x: 0.5448718, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07cffe46e5b5342a0800000000000000
-      internalID: -6754454555147109264
+      spriteID: eee2031002aa81a60800000000000000
+      internalID: 7645047421897027310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_4
+      name: Skelly_Defend_00
       rect:
         serializedVersion: 2
-        x: 172
-        y: 7
-        width: 52
-        height: 99
+        x: 139
+        y: 625
+        width: 67
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a2c3fb18683ec180800000000000000
+      internalID: -9093268577817738587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_01
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 927
+        width: 69
+        height: 96
       alignment: 9
-      pivot: {x: 0.52884614, y: 0.5151515}
+      pivot: {x: 0.48550725, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 140f09109a5e1dcb0800000000000000
-      internalID: -4840835610408062911
+      spriteID: 8b8f44b3beea6f280800000000000000
+      internalID: -9009821679173175112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_5
+      name: Skelly_Defend_02
       rect:
         serializedVersion: 2
-        x: 136
-        y: 112
-        width: 60
+        x: 226
+        y: 926
+        width: 69
         height: 97
       alignment: 9
-      pivot: {x: 0.575, y: 0.52577317}
+      pivot: {x: 0.48550725, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 140407bf965639cf0800000000000000
-      internalID: -246742048710836159
+      spriteID: cb9f580663cee10c0800000000000000
+      internalID: -4602982050834286148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_6
+      name: Skelly_Defend_03
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 719
+        width: 67
+        height: 98
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57da8ccccd4ddf210800000000000000
+      internalID: 1368483906584096117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_04
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 723
+        width: 67
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c84847d762edcd040800000000000000
+      internalID: 4673854770198643852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_05
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 927
+        width: 69
+        height: 96
+      alignment: 9
+      pivot: {x: 0.48550725, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bfb1a29c66efe780800000000000000
+      internalID: -8651443005164503114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_06
       rect:
         serializedVersion: 2
         x: 70
-        y: 309
-        width: 66
+        y: 623
+        width: 67
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af163b1f7a205f490800000000000000
+      internalID: -7713255866464247302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_07
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 625
+        width: 67
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a744ab8bedb2058e0800000000000000
+      internalID: -1706816023191468934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_08
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 926
+        width: 69
+        height: 97
+      alignment: 9
+      pivot: {x: 0.48550725, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c452ad61bff135d10800000000000000
+      internalID: 2113067813447542092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Defend_09
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 722
+        width: 67
         height: 98
-      alignment: 9
-      pivot: {x: 0.52272725, y: 0.52040815}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 50ede829a35fade40800000000000000
-      internalID: 5682123511797046789
+      spriteID: 92902a05499f45db0800000000000000
+      internalID: -4803940487094204119
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_7
+      name: Skelly_Defend_10
       rect:
         serializedVersion: 2
-        x: 1
-        y: 206
-        width: 63
-        height: 99
-      alignment: 9
-      pivot: {x: 0.45238096, y: 0.5151515}
+        x: 277
+        y: 625
+        width: 67
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5e0b3298c26979f0800000000000000
-      internalID: -470236072497181094
+      spriteID: 84b891f2f06fc5370800000000000000
+      internalID: 8312789557294238536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_8
+      name: Skelly_Defend_11
       rect:
         serializedVersion: 2
-        x: 117
-        y: 6
-        width: 53
+        x: 368
+        y: 829
+        width: 69
+        height: 96
+      alignment: 9
+      pivot: {x: 0.48550725, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7a1734832e4467f0800000000000000
+      internalID: -620284934221260163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Enter_Defend_00
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 521
+        width: 66
         height: 100
       alignment: 9
-      pivot: {x: 0.4811321, y: 0.51}
+      pivot: {x: 0.50757575, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 54ab864b7b726a610800000000000000
-      internalID: 1632035584927644229
+      spriteID: 8fe270e920df1a740800000000000000
+      internalID: 5161684835626331896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_9
+      name: Skelly_Enter_Defend_01
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 430
+        width: 66
+        height: 97
+      alignment: 9
+      pivot: {x: 0.50757575, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e549fc82ee07eb4f0800000000000000
+      internalID: -811086714690890658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Enter_Defend_02
       rect:
         serializedVersion: 2
         x: 1
-        y: 409
-        width: 76
-        height: 102
+        y: 422
+        width: 66
+        height: 96
       alignment: 9
-      pivot: {x: 0.5197368, y: 0.5}
+      pivot: {x: 0.50757575, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1a5c4d7a1302ca1c0800000000000000
-      internalID: -4491179330754001503
+      spriteID: cf590466882402190800000000000000
+      internalID: -7989312585356765700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_10
+      name: Skelly_Enter_Defend_03
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 823
+        width: 68
+        height: 102
+      alignment: 9
+      pivot: {x: 0.49264705, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7eafba5ebb14d90800000000000000
+      internalID: -7115199341161420809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Enter_Defend_04
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 721
+        width: 67
+        height: 100
+      alignment: 9
+      pivot: {x: 0.51492536, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b8fd6aa8d7a53860800000000000000
+      internalID: 7509092502724278457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Enter_Defend_05
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 523
+        width: 67
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e606db5c851d38f90800000000000000
+      internalID: -6952483220525064082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Exit_Defend_00
       rect:
         serializedVersion: 2
         x: 1
-        y: 4
-        width: 58
+        y: 622
+        width: 67
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3a33508ee7f148a0800000000000000
+      internalID: -6322499798124250565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Exit_Defend_01
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 626
+        width: 67
+        height: 100
+      alignment: 9
+      pivot: {x: 0.51492536, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a24d24b50a4a7df70800000000000000
+      internalID: 9212012571442467882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Exit_Defend_02
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 822
+        width: 68
         height: 102
       alignment: 9
-      pivot: {x: 0.5086207, y: 0.5}
+      pivot: {x: 0.49264705, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45cc92662e4497690800000000000000
-      internalID: -7603970756671058860
+      spriteID: f364c40be8aab0a40800000000000000
+      internalID: 5335545713370351167
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Animation_11
+      name: Skelly_Exit_Defend_03
       rect:
         serializedVersion: 2
-        x: 198
-        y: 108
-        width: 57
+        x: 276
+        y: 527
+        width: 66
+        height: 96
+      alignment: 9
+      pivot: {x: 0.50757575, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2065ca9b8daaaee0800000000000000
+      internalID: -1248995131533205459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Exit_Defend_04
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 422
+        width: 66
+        height: 97
+      alignment: 9
+      pivot: {x: 0.50757575, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb6cf266f7881f70800000000000000
+      internalID: 9158219334550318002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Exit_Defend_05
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 520
+        width: 66
+        height: 100
+      alignment: 9
+      pivot: {x: 0.50757575, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b6a8e6f87d512c90800000000000000
+      internalID: -7196367955441441096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_00
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 619
+        width: 67
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf4706ddab388d980800000000000000
+      internalID: -8513910256942680837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_01
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 529
+        width: 67
+        height: 95
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0665c469751c4da0800000000000000
+      internalID: -5959364595792124406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_02
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 421
+        width: 65
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a03c686dc3f7fea30800000000000000
+      internalID: 4246752872907588362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_03
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 822
+        width: 68
         height: 101
       alignment: 9
-      pivot: {x: 0.51754385, y: 0.5049505}
+      pivot: {x: 0.4779412, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a73557b345416af50800000000000000
-      internalID: 6892218631744476026
+      spriteID: e8ca1ab60b2570df0800000000000000
+      internalID: -214111539603329906
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Attack_0
+      name: Skelly_idle_04
       rect:
         serializedVersion: 2
-        x: 61
-        y: 5
-        width: 54
+        x: 137
+        y: 328
+        width: 65
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5bbe24bf0678aab0800000000000000
+      internalID: -4996613976748016803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_05
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 433
+        width: 66
+        height: 94
+      alignment: 9
+      pivot: {x: 0.49242425, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313ba86070ab84030800000000000000
+      internalID: 3479235251480998675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_06
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 529
+        width: 67
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72e1f97410dfb8fc0800000000000000
+      internalID: -3491418904157282777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_07
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 819
+        width: 67
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7c53176340a6d450800000000000000
+      internalID: 6113249755554602106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_08
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 523
+        width: 66
+        height: 100
+      alignment: 9
+      pivot: {x: 0.49242425, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77fff13db472412b0800000000000000
+      internalID: -5614819628806045833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_idle_09
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 424
+        width: 65
         height: 101
-      alignment: 9
-      pivot: {x: 0.4722222, y: 0.5049505}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5555a9bf077628950800000000000000
-      internalID: 6449831351303165269
+      spriteID: ff10a0bcdd85e3fb0800000000000000
+      internalID: -4666194454291807745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Attack_1
+      name: Skelly_idle_10
       rect:
         serializedVersion: 2
-        x: 79
-        y: 409
-        width: 73
-        height: 102
+        x: 81
+        y: 923
+        width: 71
+        height: 100
       alignment: 9
-      pivot: {x: 0.5958904, y: 0.5}
+      pivot: {x: 0.45774648, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91109d678a843b3e0800000000000000
-      internalID: -2039206317883064039
+      spriteID: fb65c964db90cb390800000000000000
+      internalID: -7801349745974421825
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Chest
+      name: Skelly_idle_11
       rect:
         serializedVersion: 2
-        x: 205
-        y: 265
-        width: 27
-        height: 31
+        x: 70
+        y: 720
+        width: 67
+        height: 100
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5133c3d49424e4f0800000000000000
+      internalID: -800474612138561185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Arm_1
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 803
+        width: 15
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,19 +1242,145 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7d3b84a7af7c24a0800000000000000
-      internalID: -6616773394517246598
+      spriteID: 16de0c1f2fad8de00800000000000000
+      internalID: 1069845648473386337
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Hips
+      name: Skelly_Nugget_Arm_2
       rect:
         serializedVersion: 2
-        x: 205
-        y: 247
-        width: 23
+        x: 277
+        y: 784
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac05d63ad76ccce40800000000000000
+      internalID: 5678131473122414794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Arm_3
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 558
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70294faac16a5b6a0800000000000000
+      internalID: -6434053850571435513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Arm_4
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 542
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76cc64a74cf48fc0800000000000000
+      internalID: -3493390026301192577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Chest
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 593
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d0997e45be87b490800000000000000
+      internalID: -7730553326001352492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Hips
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 574
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c1b4347d618f7a0800000000000000
+      internalID: -6343294961348567955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Jaw
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 755
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c690ab8c450521d20800000000000000
+      internalID: 3247746606362659180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skelly_Nugget_Leg_1
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 650
+        width: 18
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -510,20 +1389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 17a1ffcb68c25e920800000000000000
-      internalID: 3018868082429860465
+      spriteID: b7918c94338e1b6f0800000000000000
+      internalID: -670499562522666629
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Jaw
+      name: Skelly_Nugget_Leg_2
       rect:
         serializedVersion: 2
-        x: 205
-        y: 380
-        width: 10
-        height: 6
+        x: 346
+        y: 632
+        width: 18
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -531,20 +1410,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 46fafba4ab946cb90800000000000000
-      internalID: -7222003887975190684
+      spriteID: 3f351f7403bea8190800000000000000
+      internalID: -7959290798825974797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Left_Arm
+      name: Skelly_Nugget_Leg_3
       rect:
         serializedVersion: 2
-        x: 223
-        y: 385
-        width: 30
-        height: 36
+        x: 346
+        y: 696
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -552,20 +1431,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3cb61169bb079b620800000000000000
-      internalID: 2790385395111652291
+      spriteID: bad01f3b1a03e3690800000000000000
+      internalID: -7620600048397513301
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Left_Leg
+      name: Skelly_Nugget_Leg_4
       rect:
         serializedVersion: 2
-        x: 223
-        y: 468
-        width: 32
-        height: 43
+        x: 346
+        y: 668
+        width: 18
+        height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -573,20 +1452,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5da72c28d9f62ce00800000000000000
-      internalID: 1063535184307190485
+      spriteID: df3d111895ffa08e0800000000000000
+      internalID: -1726286747260562435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Right_Arm
+      name: Skelly_Nugget_Shield
       rect:
         serializedVersion: 2
-        x: 205
-        y: 298
-        width: 30
-        height: 36
+        x: 412
+        y: 474
+        width: 47
+        height: 47
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -594,20 +1473,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d5d4271c66c55d70800000000000000
-      internalID: 9031342795308455378
+      spriteID: 1e25c6446b68c8360800000000000000
+      internalID: 7173256423884477153
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DCJ_Skelly_Death_Right_Leg
+      name: Skelly_Nugget_Skull
       rect:
         serializedVersion: 2
-        x: 223
-        y: 423
-        width: 32
-        height: 43
+        x: 277
+        y: 765
+        width: 15
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,113 +1494,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 399c8020c77689f70800000000000000
-      internalID: 9194212421584603539
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DCJ_Skelly_Death_Shield
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 336
-        width: 42
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a21b2f76a0afdb360800000000000000
-      internalID: 7187175502953754922
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DCJ_Skelly_Death_Skull
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 388
-        width: 16
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 71611d5e19bdd4380800000000000000
-      internalID: -8985284261861845481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DCJ_Skelly_Defend_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 108
-        width: 57
-        height: 96
-      alignment: 9
-      pivot: {x: 0.5, y: 0.53125}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fdb87181a6dafe0e0800000000000000
-      internalID: -2238379818597512225
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DCJ_Skelly_Defend_1
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 211
-        width: 65
-        height: 97
-      alignment: 9
-      pivot: {x: 0.4076923, y: 0.52577317}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: be7d082a0aa36ac10800000000000000
-      internalID: 2064401940791482347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skelly_Still
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 307
-        width: 67
-        height: 100
-      alignment: 9
-      pivot: {x: 0.5, y: 0.51}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77db8412f0e7ecb70800000000000000
-      internalID: 8921206515315555703
+      spriteID: ffe7bad667aedfc50800000000000000
+      internalID: 6700769614964162303
       vertices: []
       indices: 
       edges: []

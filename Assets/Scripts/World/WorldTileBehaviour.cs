@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WorldTileBehaviour : MonoBehaviour
 {
+    public int tileIndex;
     public World.Tile tile;
 
     public SpriteRenderer ceilingFace;
@@ -30,8 +31,11 @@ public class WorldTileBehaviour : MonoBehaviour
         }
     }
 
-    public void PostGenerate(int tileIndex, World world, WorldConfig config)
+    public void PostGenerate(int index, World world, WorldConfig config)
     {
+        tileIndex = index;
+        tile = world.tiles[tileIndex];
+
         gameObject.isStatic = true;
 
         ceilingFace.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
@@ -47,13 +51,13 @@ public class WorldTileBehaviour : MonoBehaviour
             renderer.receiveShadows = true;
         }
 
-        tile = world.tiles[tileIndex];
-
         if (tile.biome == null)
         {
             Debug.Assert(false, $"Invalid biome for tile{name}");
             return;
         }
+
+        ceilingFace.gameObject.layer = 3;
 
         ApplyMaterial(ceilingFace, ref tile.biome.ceilingSprites);
         ApplyMaterial(groundFace, ref tile.biome.groundSprites);

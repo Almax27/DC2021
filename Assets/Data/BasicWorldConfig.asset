@@ -39,3 +39,5 @@ MonoBehaviour:
   corridorBiome: {fileID: 11400000, guid: 9c15992159db4d249aef3c40b8637cc3, type: 2}
   ambientRoomLightPrefab: {fileID: 9088998490818938363, guid: ef368a1f5fbc07d459aeec43af667da8,
     type: 3}
+  propPrefab: {fileID: 2493474653302264466, guid: 5a4a5ce22102cbd4bb74ed8fcc8f7c0d,
+    type: 3}

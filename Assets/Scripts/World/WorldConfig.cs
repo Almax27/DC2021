@@ -26,4 +26,6 @@ public class WorldConfig : ScriptableObject
     public WorldBiomeConfig corridorBiome;
 
     public Light ambientRoomLightPrefab;
+
+    public SpriteRenderer propPrefab;
 }

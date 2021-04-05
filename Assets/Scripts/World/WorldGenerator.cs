@@ -82,7 +82,7 @@ public class WorldGenerator
         if (IsCanceled) yield break;
     }
 
-    public IEnumerator Generate(World world, WorldConfig config)
+    public void Generate(World world, WorldConfig config)
     {
         Debug.Assert(world != null);
 
@@ -98,18 +98,18 @@ public class WorldGenerator
 
         world.InitTilesFromBounds(new RectInt(Vector2Int.zero, config.worldSize));
 
-        yield return CreateRooms(world, config);
+        CreateRooms(world, config);
 
-        yield return CreateCorridors(world, config);
+        CreateCorridors(world, config);
 
-        yield return CreateTiles(world, config);
+        CreateTiles(world, config);
 
         IsRunning = false;
 
         Status = IsCanceled ? "Canceled" : "Success";
     }
 
-    IEnumerator CreateRooms(World world, WorldConfig config)
+    void CreateRooms(World world, WorldConfig config)
     {
         int roomCount = Random.Range(config.roomCountRange.min, config.roomCountRange.max);
 
@@ -145,10 +145,6 @@ public class WorldGenerator
             for (int j = 0; j < roomsToCreate; j++)
             {
                 roomConfigIndices.Add(i);
-#if UNITY_EDITOR
-                Status = $"Building Configs {roomConfigIndices.Count * 100 / roomCount}%";
-                if (ShouldWait) yield return Wait(0.1f);
-#endif
             }
         }
 
@@ -188,7 +184,7 @@ public class WorldGenerator
                 else if (workingSet.Count <= 0)
                 {
                     Debug.LogWarning($"Failed to generate all rooms: {world.rooms.Count}/{roomCount}\nPlease decrease Room Count or increase World Size");
-                    yield break;// return
+                    return;
                 }
             }
 
@@ -200,27 +196,16 @@ public class WorldGenerator
             {
                 workingSet.Enqueue(new PendingRoom(world.rooms.Count - 1, nextDirs));
             }
-#if UNITY_EDITOR
-            Status = $"Building rooms {world.rooms.Count * 100 / roomConfigIndices.Count}%";
-            if(ShouldWait) yield return Wait(0.1f);
-#endif
         }
 
         int numberOfRoomsToCull = Mathf.CeilToInt(config.roomReduction * world.rooms.Count);
         if (numberOfRoomsToCull > 0)
         {
-#if UNITY_EDITOR
-            Status = $"Removing rooms: shuffling";
-#endif
             world.rooms.Shuffle();
 
             for(int i = 0; i < numberOfRoomsToCull; i++)
             {
                 world.rooms.RemoveAt(world.rooms.Count - 1);
-#if UNITY_EDITOR
-                Status = $"Removing {numberOfRoomsToCull} rooms {i * 100 / numberOfRoomsToCull}%";
-                if (ShouldWait) yield return Wait(0.1f);
-#endif
             }
         }
     }
@@ -261,7 +246,7 @@ public class WorldGenerator
         return true;
     }
 
-    IEnumerator CreateCorridors(World world, WorldConfig config)
+    void CreateCorridors(World world, WorldConfig config)
     {
         Status = "Creating Corridors...";
 
@@ -271,17 +256,7 @@ public class WorldGenerator
             points.Add(room.rect.center);
         }
 
-#if UNITY_EDITOR
-        Status = "Corridors: Voronoi...";
-        yield return null;
-#endif
-
         Voronoi v = new Voronoi(points, new Rect(world.Bounds.position, world.Bounds.size));
-
-#if UNITY_EDITOR
-        Status = "Corridors: Min Spanning Tree...";
-        yield return null;
-#endif
 
         SpanningTree = v.SpanningTree(KruskalType.MINIMUM);
 
@@ -314,10 +289,6 @@ public class WorldGenerator
         List<Vector2Int> roomIntersections = new List<Vector2Int>(2);
         foreach (var connection in SpanningTree)
         {
-#if UNITY_EDITOR
-            Status = $"Building Corridors {world.corridors.Count * 100 / SpanningTree.Count}%";
-            if (ShouldWait) yield return Wait(0.1f);
-#endif
             roomsIntersected.Clear();
             roomIntersections.Clear();
             for (int iRoom = 0; iRoom < roomEdges.Count; iRoom++)
@@ -402,12 +373,8 @@ public class WorldGenerator
         }
     }
 
-    IEnumerator CreateTiles(World world, WorldConfig config)
+    void CreateTiles(World world, WorldConfig config)
     {
-#if UNITY_EDITOR
-        Status = $"Building room tiles";
-        if (ShouldWait) yield return Wait(0.1f);
-#endif
         foreach (var room in world.rooms)
         {
             foreach(var p in room.rect.allPositionsWithin)
@@ -419,10 +386,6 @@ public class WorldGenerator
             }
         }
 
-#if UNITY_EDITOR
-        Status = $"Building corridor tiles";
-        if (ShouldWait) yield return Wait(0.1f);
-#endif
         foreach (var corridor in world.corridors)
         {
             foreach(var p in corridor.tiles)
