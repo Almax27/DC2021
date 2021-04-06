@@ -13,7 +13,5 @@ public class GameConfig : ScriptableObject
         public float TimeOffset;
     }
 
-    public PlayerBehaviour playerPrefab;
-
     public List<MusicConfig> musicConfigs = new List<MusicConfig>();
 }

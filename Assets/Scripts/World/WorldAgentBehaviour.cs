@@ -28,6 +28,11 @@ public class WorldAgentBehaviour : MonoBehaviour
 
     protected virtual void Awake()
     {
+        PostSpawn();
+    }
+
+    public void PostSpawn()
+    {
         if (GameManager == null) GameManager = FindObjectOfType<GameManager>();
         Health = maxHealth;
     }
@@ -46,37 +51,17 @@ public class WorldAgentBehaviour : MonoBehaviour
         return p;
     }
 
-    bool IsWalkable(Vector2Int targetPos)
+    public bool IsWalkable(Vector2Int targetPos)
     {
-        var tile = GameManager.World.TileAtPostion(targetPos.x, targetPos.y);
-        if (tile.type == WorldTileType.None) return false;
-
-        foreach(var otherAgent in FindObjectsOfType<WorldAgentBehaviour>())
-        {
-            if (otherAgent.TilePosition == targetPos)
-            {
-                return false; //another agent occupies this spot
-            }
-        }
-
-        return true;
-    }
-
-    public bool WarpTo(Vector2Int targetPos, int heading = 0)
-    {
-        if (!IsWalkable(targetPos)) return false;
-
-        TilePosition = targetPos;
-        TileHeading = heading;
-
-        transform.SetPositionAndRotation(PosInTile(), Quaternion.Euler(0, RotationFromHeading(TileHeading), 0));
-
-        return true;
+        var tile = GameManager.World.TileAtPostion(targetPos);
+        return tile.IsEmpty;
     }
 
     public bool MoveTo(Vector2Int targetPos)
     {
         if (!IsWalkable(targetPos)) return false;
+        GameManager.World.tiles[GameManager.World.TileIndex(TilePosition)].agent = null;
+        GameManager.World.tiles[GameManager.World.TileIndex(targetPos)].agent = this;
         TilePosition = targetPos;
         return true;
     }
@@ -94,6 +79,17 @@ public class WorldAgentBehaviour : MonoBehaviour
     public bool MoveBackwards()
     {
         return MoveTo(TilePosition - HeadingDirection(TileHeading));
+    }
+
+    public bool WarpTo(Vector2Int targetPos, int heading = 0)
+    {
+        if (MoveTo(targetPos))
+        {
+            TileHeading = heading;
+            transform.SetPositionAndRotation(PosInTile(), Quaternion.Euler(0, RotationFromHeading(TileHeading), 0));
+            return true;
+        }
+        return false;
     }
 
     public void TurnClockwise()
@@ -137,7 +133,7 @@ public class WorldAgentBehaviour : MonoBehaviour
 
             foreach(var nugget in deathNuggetPrefabs)
             {
-                if(nugget) Instantiate(nugget, this.transform.position, this.transform.rotation);
+                if(nugget) Instantiate(nugget, this.transform.position + (Vector3.up * 0.5f), this.transform.rotation);
             }
 
             if(destroyOnDeath)

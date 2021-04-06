@@ -19,7 +19,7 @@ public class WorldTileBehaviour : MonoBehaviour
         if(renderer && sprites.Length > 0)
         {
             renderer.sharedMaterial = tile.biome.spriteMaterial;
-            renderer.sprite = sprites[Random.Range(0, sprites.Length - 1)];
+            renderer.sprite = sprites[Random.Range(0, sprites.Length)];
         }
     }
 
@@ -66,10 +66,10 @@ public class WorldTileBehaviour : MonoBehaviour
         ApplyMaterial(leftFace, ref tile.biome.wallSprites);
         ApplyMaterial(rightFace, ref tile.biome.wallSprites);
 
-        World.Tile forwardTile = world.TileAtOffset(tileIndex, 0, 1);
-        World.Tile backTile = world.TileAtOffset(tileIndex, 0, -1);
-        World.Tile leftTile = world.TileAtOffset(tileIndex, -1, 0);
-        World.Tile rightTile = world.TileAtOffset(tileIndex, 1, 0);
+        World.Tile forwardTile = world.TileAtOffset(tileIndex, Vector2Int.up);
+        World.Tile backTile = world.TileAtOffset(tileIndex, Vector2Int.down);
+        World.Tile leftTile = world.TileAtOffset(tileIndex, Vector2Int.left);
+        World.Tile rightTile = world.TileAtOffset(tileIndex, Vector2Int.right);
 
         if(tile.biome.randomiseCeilingRotation)
         {

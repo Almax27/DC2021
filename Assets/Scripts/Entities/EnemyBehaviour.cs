@@ -52,6 +52,20 @@ public class EnemyBehaviour : WorldAgentBehaviour
     public int beatsPerMove = 2;
     int beatCounter = 0;
 
+    List<Vector2Int> currentPath = new List<Vector2Int>();
+
+    Vector2Int homePosition = Vector2Int.zero;
+    public float aggroRange = 10;
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.white;
+        foreach(var p in currentPath)
+        {
+            Gizmos.DrawCube(new Vector3(p.x + 0.5f, 0.1f, p.y + 0.5f), new Vector3(0.2f, 0.2f, 0.2f));
+        }
+    }
+
     private void Start()
     {
         Initialise();
@@ -60,11 +74,15 @@ public class EnemyBehaviour : WorldAgentBehaviour
 
         GameManager.onBeatEvent.AddListener(OnBeat);
 
-        StartCoroutine(pathFinder.CalculateClosestValid(GameManager.WorldGen, new Vector2Int((int)transform.position.x, (int)transform.position.z), results =>
+        homePosition = new Vector2Int((int)transform.position.x, (int)transform.position.z);
+
+        StartCoroutine(pathFinder.CalculateClosestValid(GameManager.WorldGen, homePosition, 
+        (results, reachedGoal) =>
         {
             if (results.Count > 0)
             {
-                WarpTo(results[results.Count - 1], 0);
+                homePosition = results[results.Count - 1];
+                WarpTo(homePosition, 0);
             }
         }));
     }
@@ -89,14 +107,40 @@ public class EnemyBehaviour : WorldAgentBehaviour
         if (beatCounter % beatsPerMove != 0)
             return;
 
-        StartCoroutine(pathFinder.CalculatePathTo(GameManager.WorldGen, TilePosition, GameManager.Player.TilePosition, results =>
+        Vector2Int moveToPosition = homePosition;
+
+        float distanceToPlayer = Vector3.Distance(GameManager.Player.transform.position, transform.position);
+        if (distanceToPlayer < aggroRange)
         {
-            int distanceFromTarget = 1;
-            if (results.Count > 1 + distanceFromTarget)
-            {
-                MoveTo(results[1]);
-            }
-        }));
+            moveToPosition = GameManager.Player.TilePosition;
+        }
+
+        if (moveToPosition == TilePosition)
+            return; //already at destination
+
+        StartCoroutine( pathFinder.Calculate(GameManager.WorldGen, TilePosition,
+                        a => a == moveToPosition,
+                        a => Vector2Int.Distance(a, GameManager.Player.TilePosition),
+                        a =>
+                        {
+                            var tile = GameManager.World.TileAtPostion(a);
+                            if (tile.type == WorldTileType.None)
+                                return -1;
+                            if (tile.interactable && tile.interactable.IsBlocking)
+                                return -1;
+                            if (tile.agent != this && tile.agent is EnemyBehaviour)
+                                return -1;
+                            return 1;
+                        },
+                        (results, reachedGoal) =>
+                        {
+                            currentPath = results;
+                            int distanceFromTarget = 1;
+                            if (results.Count > 1 + distanceFromTarget)
+                            {
+                                MoveTo(results[1]);
+                            }
+                        }));
     }
 
     protected override void Update()
@@ -130,7 +174,7 @@ public class EnemyBehaviour : WorldAgentBehaviour
         else if(combatStateFlows.Count > 0)
         {
             combatStateIndex = 0;
-            combatFlowIndex = Random.Range(0, combatStateFlows.Count - 1);
+            combatFlowIndex = Random.Range(0, combatStateFlows.Count);
             UpdateCombat();
         }
     }

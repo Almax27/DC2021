@@ -8,9 +8,7 @@ enum PlayerAction
     MoveForward,
     MoveBack,
     TurnLeft,
-    TurnRight,
-    Attack,
-    Defend
+    TurnRight
 }
 
 enum PlayerActionAccuracy
@@ -20,8 +18,6 @@ enum PlayerActionAccuracy
     Good,
     Perfect
 }
-
-
 
 public class PlayerBehaviour : WorldAgentBehaviour
 {
@@ -33,6 +29,8 @@ public class PlayerBehaviour : WorldAgentBehaviour
     PlayerAction pendingAction = PlayerAction.None;
     PlayerActionAccuracy pendingActionAccuracy = PlayerActionAccuracy.Miss;
     bool graceUsed = false;
+
+    public bool debugIgnoreBeats = false;
 
     private void Start()
     {
@@ -57,7 +55,20 @@ public class PlayerBehaviour : WorldAgentBehaviour
         switch (pendingAction)
         {
             case PlayerAction.MoveForward:
-                MoveForward();
+
+                var tile = GameManager.World.TileAtPostion(TilePosition + HeadingDirection(TileHeading));
+                if(tile.agent && tile.agent != this)
+                {
+                    Attack();
+                }
+                else if(tile.interactable)
+                {
+                    Debug.Log($"INTERACT: {tile.interactable.name}");
+                }
+                else
+                {
+                    MoveForward();
+                }
                 break;
             case PlayerAction.MoveBack:
                 MoveBackwards();
@@ -67,12 +78,6 @@ public class PlayerBehaviour : WorldAgentBehaviour
                 break;
             case PlayerAction.TurnRight:
                 TurnClockwise();
-                break;
-            case PlayerAction.Attack:
-                Attack();
-                break;
-            case PlayerAction.Defend:
-                Defend();
                 break;
         }
         pendingAction = PlayerAction.None;
@@ -99,7 +104,13 @@ public class PlayerBehaviour : WorldAgentBehaviour
 
         float beatTime = (GameManager.MusicTime - responseTimeOffet) % 1.0f;
         beatTime += beatGrace;
-        if (beatTime < 0.5f)
+        if(debugIgnoreBeats)
+        {
+            pendingActionAccuracy = PlayerActionAccuracy.Perfect;
+            TryConsumePendingAction();
+            return;
+        }
+        else if (beatTime < 0.5f)
         {
             pendingActionAccuracy = PlayerActionAccuracy.Miss;
             beatsToSkip = beatsToSkipOnMiss + 1;
@@ -153,14 +164,14 @@ public class PlayerBehaviour : WorldAgentBehaviour
         {
             RequestAction(PlayerAction.TurnRight);
         }
-        else if (Input.GetKeyDown(KeyCode.J))
+
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
-            RequestAction(PlayerAction.Attack);
+            debugIgnoreBeats = !debugIgnoreBeats;
+            Debug.Log($"debugIgnoreBeats={debugIgnoreBeats}");
         }
-        else if (Input.GetKeyDown(KeyCode.K))
-        {
-            RequestAction(PlayerAction.Defend);
-        }
+
+        
 
         base.Update();
     }

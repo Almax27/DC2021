@@ -15,20 +15,26 @@ public partial class World
         public WorldTileType type;
         public int height;
         public WorldBiomeConfig biome;
+        public WorldTileBehaviour behaviour;
+        public InteractableBehaviour interactable;
+        public WorldAgentBehaviour agent;
+
+        public bool IsEmpty => (type != WorldTileType.None) && !((interactable && interactable.IsBlocking) || agent);
     }
 
     public class Room
     {
         public RectInt rect;
+        public WorldConfig.Room config;
         public List<Vector2Int> connectionPoints;
         public List<Vector2Int> exitTiles;
         public List<Room> connectedRooms;
         public int height;
-        public WorldBiomeConfig biome;
 
-        public Room(RectInt rect, WorldBiomeConfig roomBiome, int height = 1)
+        public Room(RectInt rect, WorldConfig.Room roomConfig, int height = 1)
         {
             this.rect = rect;
+            config = roomConfig;
             this.height = height;
             connectionPoints = new List<Vector2Int>();
             exitTiles = new List<Vector2Int>();
@@ -43,7 +49,6 @@ public partial class World
                 connectionPoints.Add(new Vector2Int(rect.xMin - 1, rect.yMin + y));
                 connectionPoints.Add(new Vector2Int(rect.xMax, rect.yMin + y));
             }
-            biome = roomBiome;
         }
     }
 

@@ -181,39 +181,104 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">Skelly/DCJ_Skelly_Animation_0.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_0_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_1.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_10.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_10_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_11.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_11_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_1_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_2.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_2_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_3.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_3_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_4.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_4_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_5.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_5_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_6.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_6_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_7.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_7_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_8.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_8_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_9.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Animation_9_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Attack_0.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Attack_0_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Attack_1.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Attack_1_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Defend_0.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Defend_0_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Defend_1.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Defend_1_n.png</key>
-            <key type="filename">Skelly/Skelly_Still_n.png</key>
+            <key type="filename">Skelly/Skelly_Attack_00.png</key>
+            <key type="filename">Skelly/Skelly_Attack_01.png</key>
+            <key type="filename">Skelly/Skelly_Attack_02.png</key>
+            <key type="filename">Skelly/Skelly_Attack_03.png</key>
+            <key type="filename">Skelly/Skelly_Attack_04.png</key>
+            <key type="filename">Skelly/Skelly_Attack_05.png</key>
+            <key type="filename">Skelly/Skelly_Defend_00.png</key>
+            <key type="filename">Skelly/Skelly_Defend_01.png</key>
+            <key type="filename">Skelly/Skelly_Defend_02.png</key>
+            <key type="filename">Skelly/Skelly_Defend_03.png</key>
+            <key type="filename">Skelly/Skelly_Defend_04.png</key>
+            <key type="filename">Skelly/Skelly_Defend_05.png</key>
+            <key type="filename">Skelly/Skelly_Defend_06.png</key>
+            <key type="filename">Skelly/Skelly_Defend_07.png</key>
+            <key type="filename">Skelly/Skelly_Defend_08.png</key>
+            <key type="filename">Skelly/Skelly_Defend_09.png</key>
+            <key type="filename">Skelly/Skelly_Defend_10.png</key>
+            <key type="filename">Skelly/Skelly_Defend_11.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_00.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_01.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_02.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_03.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_04.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_05.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_00.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_01.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_02.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_03.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_04.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_05.png</key>
+            <key type="filename">Skelly/Skelly_idle_00.png</key>
+            <key type="filename">Skelly/Skelly_idle_01.png</key>
+            <key type="filename">Skelly/Skelly_idle_02.png</key>
+            <key type="filename">Skelly/Skelly_idle_03.png</key>
+            <key type="filename">Skelly/Skelly_idle_04.png</key>
+            <key type="filename">Skelly/Skelly_idle_05.png</key>
+            <key type="filename">Skelly/Skelly_idle_06.png</key>
+            <key type="filename">Skelly/Skelly_idle_07.png</key>
+            <key type="filename">Skelly/Skelly_idle_08.png</key>
+            <key type="filename">Skelly/Skelly_idle_09.png</key>
+            <key type="filename">Skelly/Skelly_idle_10.png</key>
+            <key type="filename">Skelly/Skelly_idle_11.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,1</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>22,26,43,51</rect>
+                <key>scale9Paddings</key>
+                <rect>22,26,43,51</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">Skelly/Skelly_Attack_00_n.png</key>
+            <key type="filename">Skelly/Skelly_Attack_01_n.png</key>
+            <key type="filename">Skelly/Skelly_Attack_02_n.png</key>
+            <key type="filename">Skelly/Skelly_Attack_03_n.png</key>
+            <key type="filename">Skelly/Skelly_Attack_04_n.png</key>
+            <key type="filename">Skelly/Skelly_Attack_05_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_00_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_01_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_02_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_03_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_04_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_05_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_06_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_07_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_08_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_09_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_10_n.png</key>
+            <key type="filename">Skelly/Skelly_Defend_11_n.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_00_n.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_01_n.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_02_n.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_03_n.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_04_n.png</key>
+            <key type="filename">Skelly/Skelly_Enter_Defend_05_n.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_00_n.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_01_n.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_02_n.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_03_n.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_04_n.png</key>
+            <key type="filename">Skelly/Skelly_Exit_Defend_05_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_00_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_01_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_02_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_03_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_04_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_05_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_06_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_07_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_08_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_09_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_10_n.png</key>
+            <key type="filename">Skelly/Skelly_idle_11_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -228,8 +293,12 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Chest.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Chest_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_1.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_1_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_2.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_2_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Skull.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Skull_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -238,14 +307,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>7,8,13,15</rect>
+                <rect>4,4,7,9</rect>
                 <key>scale9Paddings</key>
-                <rect>7,8,13,15</rect>
+                <rect>4,4,7,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Hips.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Hips_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_3.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_3_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_4.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Arm_4_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -254,14 +325,14 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>6,4,11,8</rect>
+                <rect>5,4,9,7</rect>
                 <key>scale9Paddings</key>
-                <rect>6,4,11,8</rect>
+                <rect>5,4,9,7</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Jaw.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Jaw_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Chest.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Chest_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -270,16 +341,14 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>3,2,5,3</rect>
+                <rect>6,6,13,12</rect>
                 <key>scale9Paddings</key>
-                <rect>3,2,5,3</rect>
+                <rect>6,6,13,12</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Arm.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Arm_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Arm.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Arm_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Hips.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Hips_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -288,16 +357,14 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>8,9,15,18</rect>
+                <rect>5,4,9,9</rect>
                 <key>scale9Paddings</key>
-                <rect>8,9,15,18</rect>
+                <rect>5,4,9,9</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Leg.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Left_Leg_n.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Leg.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Right_Leg_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Jaw.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Jaw_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -306,14 +373,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>8,11,16,21</rect>
+                <rect>3,2,5,4</rect>
                 <key>scale9Paddings</key>
-                <rect>8,11,16,21</rect>
+                <rect>3,2,5,4</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Shield.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Shield_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_1.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_1_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_2.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_2_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -322,14 +391,16 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>11,11,21,21</rect>
+                <rect>5,4,9,8</rect>
                 <key>scale9Paddings</key>
-                <rect>11,11,21,21</rect>
+                <rect>5,4,9,8</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Skull.png</key>
-            <key type="filename">Skelly/DCJ_Skelly_Death_Skull_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_3.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_3_n.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_4.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Leg_4_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
@@ -338,24 +409,25 @@
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>4,5,8,9</rect>
+                <rect>5,7,9,13</rect>
                 <key>scale9Paddings</key>
-                <rect>4,5,8,9</rect>
+                <rect>5,7,9,13</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
-            <key type="filename">Skelly/Skelly_Still.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Shield.png</key>
+            <key type="filename">Skelly/Skelly_Nugget_Shield_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
-                <point_f>0.505747,1</point_f>
+                <point_f>0.5,0.5</point_f>
                 <key>spriteScale</key>
                 <double>1</double>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>22,26,43,51</rect>
+                <rect>12,12,23,23</rect>
                 <key>scale9Paddings</key>
-                <rect>22,26,43,51</rect>
+                <rect>12,12,23,23</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

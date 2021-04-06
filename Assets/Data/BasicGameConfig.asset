@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07f26d54a49be13428512407271909c4, type: 3}
   m_Name: BasicGameConfig
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6771430719068188905, guid: 1835d216357f4c340b60a7cec928188c,
-    type: 3}
   musicConfigs:
   - Clip: {fileID: 8300000, guid: 6bd9eb4053ef13a4eae48a279d7e7028, type: 3}
     BPM: 132

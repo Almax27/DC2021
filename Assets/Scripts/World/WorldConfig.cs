@@ -13,19 +13,34 @@ public class WorldConfig : ScriptableObject
 
         public MinMaxInt sizeRange;
 
+        [Tooltip("Minimum number of tiles to fill")]
+        public MinMaxInt fillCountRange;
+
         public WorldBiomeConfig biome;
+
+        public EnemyBehaviour[] enemyTypes;
+        public MinMaxInt enemyCountRange;
     }
 
     public Vector2Int worldSize;
     public MinMaxInt roomCountRange;
-    [Range(0,1)] public float roomReduction = 0.5f;
+
+    [Range(0,1)] 
+    public float roomReduction = 0.5f;
+
     public List<Room> roomConfigs;
 
     public MinMaxInt roomPadding = new MinMaxInt(2,2);
 
     public WorldBiomeConfig corridorBiome;
 
+    public PlayerBehaviour playerPrefab;
+
     public Light ambientRoomLightPrefab;
 
     public SpriteRenderer propPrefab;
+
+    public int objectiveCount = 3;
+    public ObjectiveInteractableBehaviour objectivePrefab;
+    
 }

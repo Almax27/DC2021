@@ -89,14 +89,97 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
         type: 3}
+      propertyPath: deathNuggetPrefabs.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
       propertyPath: defendAnimation.FramesPerBeat
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
         type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5624409434614158555, guid: 7728e398683c4ae44ab85f8391abd8f8,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2684328352044729631, guid: 30eefc77c431ade4194a8ee1e5a5f412,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1994335174803522903, guid: 99eb23b19a24fdb46bc72d37c644db67,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 7021445155740610654, guid: bcc24cf97dad3384380e3e9c3afba233,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 7414643480826534254, guid: c7c72533f16dcef47bd709cd1ced5c6c,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 1248545654731718798, guid: 64826fbdd30c4e04597a3fce610b8e35,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 5580035944416913293, guid: 30bb9676b7e70ea49968c9159a774cc9,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 1507066013227778071, guid: 5bce6ee90102fbe4eaddd1d3461723cf,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 4121147942320838772, guid: f8d49cb7a4c8c78408be0170d3b68513,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 1880122095542595590, guid: 54064f798b09bfc4ea8c1a1dbe431506,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
       propertyPath: attackTellAnimation.FramesPerBeat
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 3712943749082549667, guid: 921821ede91d0d249b2251cb054eb38a,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 4311339758588908911, guid: ec1ca34fe30788346a66fed15bc0c6e8,
+        type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: deathNuggetPrefabs.Array.data[12]
+      value: 
+      objectReference: {fileID: 5405468839999559513, guid: bd4acc03f4d2d8140be4f11cd5d02561,
+        type: 3}
     - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
         type: 3}
       propertyPath: exitDefendAnimation.FramesPerBeat

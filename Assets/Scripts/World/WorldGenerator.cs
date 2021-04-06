@@ -173,6 +173,10 @@ public class WorldGenerator
                     Vector2 newPosition = world.rooms[pendingRoom.sourceRoomIndex].rect.center + GetDirectionOffset(pendingRoom.direction) * halfSizeOffset;
                     newPosition -= roomRect.size / 2;
 
+                    Vector2 NudgeDirection = GetDirectionOffset(pendingRoom.direction + 1);
+                    NudgeDirection *= Random.Range(-1.0f, 1.0f);
+                    newPosition += NudgeDirection * roomRect.size;
+
                     roomRect.x = Mathf.RoundToInt(newPosition.x);
                     roomRect.y = Mathf.RoundToInt(newPosition.y);
                 }
@@ -190,7 +194,7 @@ public class WorldGenerator
 
             //Add room to world
             int height = Random.value > 0.5f ? 1 : 2;
-            world.rooms.Add(new World.Room(roomRect, roomConfigs[iRoomConfig].biome, height));
+            world.rooms.Add(new World.Room(roomRect, roomConfigs[iRoomConfig], height));
 
             foreach (Direction nextDirs in GetNextDirections(lastDirection))
             {
@@ -379,10 +383,10 @@ public class WorldGenerator
         {
             foreach(var p in room.rect.allPositionsWithin)
             {
-                int iTile = world.TileIndex(p.x, p.y);
+                int iTile = world.TileIndex(p);
                 world.tiles[iTile].type = WorldTileType.Room;
                 world.tiles[iTile].height = room.height;
-                world.tiles[iTile].biome = room.biome;
+                world.tiles[iTile].biome = room.config.biome;
             }
         }
 
@@ -390,10 +394,28 @@ public class WorldGenerator
         {
             foreach(var p in corridor.tiles)
             {
-                int iTile = world.TileIndex(p.x, p.y);
+                int iTile = world.TileIndex(p);
                 world.tiles[iTile].type = WorldTileType.Corridor;
                 world.tiles[iTile].height = corridor.height;
                 world.tiles[iTile].biome = corridor.biome;
+            }
+        }
+
+        //Fill in some random things for fun
+        foreach (var room in world.rooms)
+        {
+            //Fill in random tiles
+            int maxNumTiles = Mathf.Min(room.rect.size.x, room.rect.size.y) - 1; //prevent blocking paths
+            int numTiles = Mathf.Clamp(room.config.fillCountRange.Random, 0, maxNumTiles);
+            for (int i = 0; i < numTiles; i++)
+            {
+                Vector2Int p = new Vector2Int(Random.Range(room.rect.xMin, room.rect.xMax), Random.Range(room.rect.yMin, room.rect.yMax));
+                int index = world.TileIndex(p);
+                if (world.HasNeighborOfType(index, WorldTileType.Corridor) == false)
+                {
+                    world.tiles[index].type = WorldTileType.None;
+                    world.tiles[index].height = 0;
+                }
             }
         }
     }

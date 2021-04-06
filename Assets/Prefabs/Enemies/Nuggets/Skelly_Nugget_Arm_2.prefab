@@ -98,7 +98,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.1171875, y: 0.1328125, z: 0.01}
-  m_Center: {x: 0, y: 0.06640625, z: 0}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3759088947255272424
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnSpeedRange:
-    min: 1
-    max: 20
+    min: 5
+    max: 5
   SpawnRotSpeedRange:
     min: -720
     max: 720

@@ -14,6 +14,10 @@ public class WorldBiomeConfig : ScriptableObject
     public MinMaxInt grassPerTile = new MinMaxInt(5,20);
     public Sprite[] grassSprites = new Sprite[0];
 
+    public float torchDensity = 0.1f;
+    public TorchBehaviour[] ceilingTorchesPrefabs = new TorchBehaviour[0];
+    public TorchBehaviour[] groundTorchesPrefabs = new TorchBehaviour[0];
+
     public bool randomiseCeilingRotation = true;
     public bool randomiseGroundRotation = true;
 

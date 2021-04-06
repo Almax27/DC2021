@@ -13,8 +13,7 @@ using Unity.EditorCoroutines.Editor;
 
     public void StartGeneration(WorldGeneratorBehaviour behaviour)
     {
-        wasGenerating = true;
-        EditorCoroutineUtility.StartCoroutine(behaviour.Generate(), this);
+        behaviour.Generate();
     }
 
     public void OnSceneGUI()
@@ -87,7 +86,8 @@ using Unity.EditorCoroutines.Editor;
                         EditorWindow.GetWindow<SceneView>().Repaint();
                     };
 
-                    EditorCoroutineUtility.StartCoroutine(behaviour.pathFinder.CalculatePathTo(behaviour, behaviour.pathStart, behaviour.pathEnd, results =>
+                    EditorCoroutineUtility.StartCoroutine(behaviour.pathFinder.CalculatePathTo(behaviour, behaviour.pathStart, behaviour.pathEnd, 
+                    (results, reachedGoal) =>
                     {
                         Debug.Log($"Path result: count={results.Count}");
                         behaviour.pathResults = results;

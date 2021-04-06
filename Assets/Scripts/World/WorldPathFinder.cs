@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class WorldPathFinder
 {
-    public delegate void ResultCallback(List<Vector2Int> tiles);
+    public delegate void ResultCallback(List<Vector2Int> tiles, bool reachedGoal);
     public delegate bool GoalEvaluator(Vector2Int current);
     public delegate float HeurisicCalculator(Vector2Int a);
     public delegate void DebugRenderCallback();
 
     static Vector2Int[] s_neighborOffsets = new Vector2Int[] { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
-    SortedList<float, Vector2Int> openSet = new SortedList<float, Vector2Int>(Comparer<float>.Create((a,b) => (a > b) ? -1 : 1));
+    SortedList<float, Vector2Int> openSet = new SortedList<float, Vector2Int>(Comparer<float>.Create((a, b) => (a > b) ? -1 : 1));
     Dictionary<Vector2Int, Vector2Int> cameFrom = new Dictionary<Vector2Int, Vector2Int>(0);
     Dictionary<Vector2Int, float> gScore = new Dictionary<Vector2Int, float>(0);
     Dictionary<Vector2Int, float> fScore = new Dictionary<Vector2Int, float>(0);
@@ -22,12 +22,17 @@ public class WorldPathFinder
 
     public bool IsWalkable(WorldGeneratorBehaviour worldGen, Vector2Int pos)
     {
-        return worldGen.World.TileAtPostion(pos.x, pos.y).type != WorldTileType.None;
+        var tile = worldGen.World.TileAtPostion(pos);
+        return tile.type != WorldTileType.None && (!tile.interactable || !tile.interactable.IsBlocking);
     }
 
     public IEnumerator CalculatePathTo(WorldGeneratorBehaviour worldGen, Vector2Int start, Vector2Int goal, ResultCallback callback, DebugRenderCallback debugRenderCallback = null)
     {
-        yield return Calculate(worldGen, start, a => a == goal, a => Vector2Int.Distance(a, goal), a => IsWalkable(worldGen, a) ? 1.0f : -1.0f, callback, debugRenderCallback);
+        yield return Calculate( worldGen, start, 
+                                a => a == goal, 
+                                a => Vector2Int.Distance(a, goal), 
+                                a => IsWalkable(worldGen, a) ? 1.0f : -1.0f, 
+                                callback, debugRenderCallback);
     }
 
     public IEnumerator CalculateClosestValid(WorldGeneratorBehaviour worldGen, Vector2Int start, ResultCallback callback, DebugRenderCallback debugRenderCallback = null)
@@ -81,21 +86,16 @@ public class WorldPathFinder
 
         openSet.Add(fScore[start], start);
 
+        Vector2Int current = new Vector2Int();
+
         while (openSet.Count > 0)
         {
             int currentIndex = openSet.Count - 1;
-            Vector2Int current = openSet.Values[openSet.Count - 1];
+            current = openSet.Values[openSet.Count - 1];
 
             if (goalEvaluator(current))
             {
-                List<Vector2Int> finalPath = new List<Vector2Int>() { current };
-                while(cameFrom.TryGetValue(current, out Vector2Int prev))
-                {
-                    current = prev;
-                    finalPath.Add(prev);
-                }
-                finalPath.Reverse();
-                callback.Invoke(finalPath);
+                callback.Invoke(CalculateFinalPath(current), true);
                 IsProcessing = false;
                 //UnityEngine.Debug.Log($"Pathing complete: distance={finalPath.Count}, time={totalStopwatch.Elapsed.TotalSeconds:F2}");
                 yield break;
@@ -115,9 +115,8 @@ public class WorldPathFinder
                 float tentitiveScore = gScore[current] + weight;
                 if(tentitiveScore < gScore[neighbor])
                 {
-                    //This path is better than any previous ones!
-                    cameFrom.Add(neighbor, current);
-                    //cameFrom[neighbor] = current;
+                    //This path is better than any previous ones
+                    cameFrom[neighbor] = current;
                     gScore[neighbor] = tentitiveScore;
 
                     float costToReachGoal = heurisicCalculator(neighbor);
@@ -143,10 +142,23 @@ public class WorldPathFinder
 #endif
         }
 
-        callback.Invoke(new List<Vector2Int>());
+        //return the best path
+        callback.Invoke(new List<Vector2Int>(), false);
 
         IsProcessing = false;
 
         //UnityEngine.Debug.Log($"Pathing failed: time={totalStopwatch.Elapsed.TotalSeconds:F2}");
+    }
+
+    List<Vector2Int> CalculateFinalPath(Vector2Int current)
+    {
+        List<Vector2Int> finalPath = new List<Vector2Int>() { current };
+        while (cameFrom.TryGetValue(current, out Vector2Int prev))
+        {
+            current = prev;
+            finalPath.Add(prev);
+        }
+        finalPath.Reverse();
+        return finalPath;
     }
 }

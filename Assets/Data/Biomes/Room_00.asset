@@ -37,6 +37,11 @@ MonoBehaviour:
   - {fileID: 1665663874810610483, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
   - {fileID: -893726694981695562, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
   - {fileID: 2989788759208323229, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
+  torchDensity: 0.05
+  ceilingTorchesPrefabs:
+  - {fileID: 2658421686151797904, guid: 7f112d2f25e02994b844989ddaa13e47, type: 3}
+  groundTorchesPrefabs:
+  - {fileID: 2658421686151797904, guid: 3b2272a541094f14ea2e4533b5725955, type: 3}
   randomiseCeilingRotation: 1
   randomiseGroundRotation: 1
   ambientColor: {r: 0.30588236, g: 0.21960784, b: 0.7372549, a: 1}

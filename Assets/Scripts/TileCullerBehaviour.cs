@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class TileCullerBehaviour : MonoBehaviour
 {
     GameManager gameManager;
 
+    public bool debugDisable = false;
     public float cullDistance = 30.0f;
 
     int tileIndex = 0;
@@ -14,11 +19,19 @@ public class TileCullerBehaviour : MonoBehaviour
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        debugDisable = false;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        if (gameManager.World == null) return;
+        if (debugDisable || gameManager.WorldGen == null) return;
+
+        Vector3 camPos = new Vector3();
+        if (Camera.main)
+        {
+            camPos = Camera.main.transform.position;
+        }
+        else return;
 
         float cullDistSq = cullDistance * cullDistance;
 
@@ -33,7 +46,9 @@ public class TileCullerBehaviour : MonoBehaviour
             }
 
             var go = gameManager.WorldGen.GeneratedObjects[tileIndex];
-            bool inRange = (gameManager.Player.transform.position - go.transform.position).sqrMagnitude < cullDistSq;
+            if (go == null) continue;
+
+            bool inRange = (camPos - go.transform.position).sqrMagnitude < cullDistSq;
             if (inRange != go.activeSelf)
             {
                 go.SetActive(inRange);

@@ -20,24 +20,53 @@ MonoBehaviour:
   roomConfigs:
   - weight: 1
     sizeRange:
-      min: 4
+      min: 3
+      max: 5
+    fillCountRange:
+      min: 0
       max: 5
     biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+    enemyTypes:
+    - {fileID: 7800131878741505646, guid: 1a8ec5458b05ac444addb88ae1788643, type: 3}
+    enemyCountRange:
+      min: 0
+      max: 1
   - weight: 1
     sizeRange:
-      min: 5
-      max: 10
-    biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+      min: 4
+      max: 8
+    fillCountRange:
+      min: 1
+      max: 8
+    biome: {fileID: 11400000, guid: 9c15992159db4d249aef3c40b8637cc3, type: 2}
+    enemyTypes:
+    - {fileID: 7800131878741505646, guid: 1a8ec5458b05ac444addb88ae1788643, type: 3}
+    enemyCountRange:
+      min: 1
+      max: 2
   - weight: 0.2
     sizeRange:
-      min: 10
-      max: 15
+      min: 2
+      max: 10
+    fillCountRange:
+      min: 3
+      max: 10
     biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+    enemyTypes:
+    - {fileID: 7800131878741505646, guid: 1a8ec5458b05ac444addb88ae1788643, type: 3}
+    enemyCountRange:
+      min: 1
+      max: 3
   roomPadding:
-    min: 5
-    max: 25
+    min: 2
+    max: 5
   corridorBiome: {fileID: 11400000, guid: 9c15992159db4d249aef3c40b8637cc3, type: 2}
+  playerPrefab: {fileID: 6771430719068188905, guid: 1835d216357f4c340b60a7cec928188c,
+    type: 3}
   ambientRoomLightPrefab: {fileID: 9088998490818938363, guid: ef368a1f5fbc07d459aeec43af667da8,
     type: 3}
   propPrefab: {fileID: 2493474653302264466, guid: 5a4a5ce22102cbd4bb74ed8fcc8f7c0d,
+    type: 3}
+  objectiveCount: 3
+  objectivePrefab: {fileID: -9198786945037321220, guid: d2f310b5510764541ae61246d9ff1025,
     type: 3}

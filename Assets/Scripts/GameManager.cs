@@ -30,13 +30,24 @@ public class GameManager : MonoBehaviour
     public float BeatDuration => musicConfig.BPM / 60.0f;
 
     WorldGeneratorBehaviour worldGeneratorBehaviour;
-    public World World => worldGeneratorBehaviour ? worldGeneratorBehaviour.World : null;
-    public WorldGeneratorBehaviour WorldGen => worldGeneratorBehaviour;
+    public World World 
+    { 
+        get
+        {
+            if (worldGeneratorBehaviour) return worldGeneratorBehaviour.World;
+            else return FindObjectOfType<WorldGeneratorBehaviour>()?.World;
+        }
+    }
+
+    public WorldGeneratorBehaviour WorldGen => worldGeneratorBehaviour ? worldGeneratorBehaviour : FindObjectOfType<WorldGeneratorBehaviour>();
 
     float previousMusicTime = 0.0f;
     public UnityEvent onBeatEvent;
 
-    public PlayerBehaviour Player { get; private set; }
+    PlayerBehaviour _player = null;
+    public PlayerBehaviour Player { get { if (_player) return _player; else { _player = FindObjectOfType<PlayerBehaviour>(); return _player; } } }
+
+    public int ObjectiveCompleteCount { get; set; }
 
     private void Awake()
     {
@@ -55,7 +66,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         PlayMusic(0);
-        StartCoroutine(LoadNewWorld());
+        LoadNewWorld();
     }
 
     void OnGUI()
@@ -66,17 +77,13 @@ public class GameManager : MonoBehaviour
         GUI.Label(new Rect(0, 30, 100, 20), $"Beat = {MusicTime%1.0f:F2}");
     }
 
-    IEnumerator LoadNewWorld()
+    void LoadNewWorld()
     {
         Debug.Assert(GameState == GameState.Uninitialised, $"Failed to load new world... GameState={GameState}");
 
         GameState = GameState.GeneratingWorld;
 
-        yield return worldGeneratorBehaviour.Generate();
-
-        GameState = GameState.SpawningPlayer;
-
-        yield return SpawnPlayer();
+        worldGeneratorBehaviour.Generate();
 
         GameState = GameState.Playing;
     }
@@ -100,6 +107,11 @@ public class GameManager : MonoBehaviour
             }
             previousMusicTime = MusicTime;
         }
+
+        if(World != null && ObjectiveCompleteCount >= World.config.objectiveCount)
+        {
+            LoadNewWorld();
+        }
     }
 
     public void PlayMusic(int index)
@@ -114,40 +126,5 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogAssertion($"Invalid index {index}");
         }
-    }
-
-    public IEnumerator SpawnPlayer()
-    {
-        var playerGO = Instantiate<GameObject>(gameConfig.playerPrefab.gameObject);
-        Player = playerGO.GetComponent<PlayerBehaviour>();
-
-        //Find rooms furthest from each other
-        int[] bestRoomPair = new int[2];
-        float bestDistSq = 0.0f;
-        for(int iRoomA = 0; iRoomA < World.rooms.Count; iRoomA++)
-        {
-            for (int iRoomB = iRoomA; iRoomB < World.rooms.Count; iRoomB++)
-            {
-                float distSq = (World.rooms[iRoomA].rect.center - World.rooms[iRoomB].rect.center).sqrMagnitude;
-                if(distSq > bestDistSq)
-                {
-                    bestDistSq = distSq;
-                    bestRoomPair[0] = iRoomA;
-                    bestRoomPair[1] = iRoomB;
-                }
-            }
-        }
-
-        bestRoomPair.Shuffle();
-
-        var spawnRoom = World.rooms[bestRoomPair[0]];
-        Vector2Int spawnTile = new Vector2Int((int)spawnRoom.rect.center.x, (int)spawnRoom.rect.center.y);
-
-        var spawnRoomExitTile = spawnRoom.exitTiles[0];
-        var spawnHeading = WorldAgentBehaviour.BestHeadingForDirection(spawnRoomExitTile - spawnTile);
-
-        Player.WarpTo(spawnTile, spawnHeading);
-
-        yield return null;
     }
 }
