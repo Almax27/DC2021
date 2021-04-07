@@ -26,11 +26,16 @@ public class PlayerBehaviour : WorldAgentBehaviour
     public int beatsToSkipOnMiss = 1;
     int beatsToSkip = 0;
 
+    public float viewDistance = 5.0f;
+
     PlayerAction pendingAction = PlayerAction.None;
     PlayerActionAccuracy pendingActionAccuracy = PlayerActionAccuracy.Miss;
     bool graceUsed = false;
 
     public bool debugIgnoreBeats = false;
+
+    public AudioClip moveClip;
+    public AudioClip missClip;
 
     private void Start()
     {
@@ -45,6 +50,8 @@ public class PlayerBehaviour : WorldAgentBehaviour
 
         TryConsumePendingAction();
         beatsToSkip--;
+
+        GameManager.World.RevealTiles(TilePosition, viewDistance);
     }
 
     void TryConsumePendingAction()
@@ -67,11 +74,17 @@ public class PlayerBehaviour : WorldAgentBehaviour
                 }
                 else
                 {
-                    MoveForward();
+                    if (MoveForward())
+                    {
+                        AudioUtils.PlayOnce(moveClip, transform.position, 0.3f);
+                    }
                 }
                 break;
             case PlayerAction.MoveBack:
-                MoveBackwards();
+                if(MoveBackwards())
+                {
+                    AudioUtils.PlayOnce(moveClip, transform.position, 0.3f, 0.7f);
+                }
                 break;
             case PlayerAction.TurnLeft:
                 TurnAntiClockwise();
@@ -114,6 +127,7 @@ public class PlayerBehaviour : WorldAgentBehaviour
         {
             pendingActionAccuracy = PlayerActionAccuracy.Miss;
             beatsToSkip = beatsToSkipOnMiss + 1;
+            AudioUtils.PlayOnce(missClip, transform.position);
         }
         else if(beatTime < 0.7f)
         {
@@ -139,6 +153,7 @@ public class PlayerBehaviour : WorldAgentBehaviour
             Debug.Log("Grace!");
             TryConsumePendingAction();
         }
+        
 
         Debug.Log($"{pendingAction} : {pendingActionAccuracy} : {GameManager.MusicTime%1.0f:F2}: {beatTime:F2}" + (graceUsed ? " : (grace)" : ""));
     }

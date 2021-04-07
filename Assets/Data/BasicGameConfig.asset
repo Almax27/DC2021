@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: BasicGameConfig
   m_EditorClassIdentifier: 
   musicConfigs:
+  - Clip: {fileID: 8300000, guid: 533c6eb303ddd0a43a4619fa12839e63, type: 3}
+    BPM: 172
+    TimeOffset: 0.125
   - Clip: {fileID: 8300000, guid: 6bd9eb4053ef13a4eae48a279d7e7028, type: 3}
     BPM: 132
-    TimeOffset: 0.2
+    TimeOffset: 0.25
   - Clip: {fileID: 8300000, guid: 0b092c8d0ead96b48883046178c36920, type: 3}
     BPM: 88
     TimeOffset: 0.4

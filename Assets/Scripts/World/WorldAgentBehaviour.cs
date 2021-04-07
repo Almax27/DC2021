@@ -31,6 +31,18 @@ public class WorldAgentBehaviour : MonoBehaviour
         PostSpawn();
     }
 
+    private void OnDestroy()
+    {
+        if (GameManager && GameManager.World != null)
+        {
+            var tileIndex = GameManager.World.TileIndex(TilePosition);
+            if (GameManager.World.tiles[tileIndex].agent == this)
+            {
+                GameManager.World.tiles[tileIndex].agent = null;
+            }
+        }
+    }
+
     public void PostSpawn()
     {
         if (GameManager == null) GameManager = FindObjectOfType<GameManager>();

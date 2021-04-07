@@ -34,7 +34,7 @@ public class WorldGeneratorBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        World = null;
+        //World = null;
     }
 
     // Start is called before the first frame update
@@ -210,20 +210,21 @@ public class WorldGeneratorBehaviour : MonoBehaviour
 
         if(Random.value < biome.torchDensity)
         {
-            if(Random.value < 0.5f && biome.ceilingTorchesPrefabs.Length > 0)
+            if(Random.value < 0.5f && biome.ceilingTorchSprites.Length > 0)
             {
                 //Place randomly off center
-                var prefab = biome.ceilingTorchesPrefabs[Random.Range(0, biome.ceilingTorchesPrefabs.Length)];
+                var sprite = biome.ceilingTorchSprites[Random.Range(0, biome.ceilingTorchSprites.Length)];
                 Vector3 position = new Vector3(tile.x, 0, tile.y);
                 position.x += 0.5f + (Random.value > 0 ? 1 : -1) * Random.Range(0.3f, 0.4f);
                 position.y += world.TileAtPostion(tile).height;
                 position.z += 0.5f + (Random.value > 0 ? 1 : -1) * Random.Range(0.3f, 0.4f);
-                var go = Instantiate<GameObject>(prefab.gameObject, position, Quaternion.identity, tileBehaviour.transform);
+                var go = Instantiate<GameObject>(config.ceilingTorchPrefab.gameObject, position, Quaternion.identity, tileBehaviour.transform);
+                go.GetComponent<SpriteRenderer>().sprite = sprite;
                 go.isStatic = true;
             }
-            else if(biome.groundTorchesPrefabs.Length > 0)
+            else if(biome.groundTorchSprites.Length > 0)
             {
-                var prefab = biome.groundTorchesPrefabs[Random.Range(0, biome.groundTorchesPrefabs.Length)];
+                var sprite = biome.groundTorchSprites[Random.Range(0, biome.groundTorchSprites.Length)];
 
                 //Place along a wall
                 List<int> wallTiles = world.GetNeighboursOfType(tileIndex, WorldTileType.None);
@@ -231,8 +232,9 @@ public class WorldGeneratorBehaviour : MonoBehaviour
                 {
                     Vector2Int wallTile = world.TilePos(wallTiles[Random.Range(0, wallTiles.Count)]);
                     Vector2Int dir = wallTile - tile;
-                    Vector3 position = new Vector3(wallTile.x + 0.5f + (dir.x * 0.4f) + (dir.y * Random.Range(-0.4f, 0.4f)), 0, wallTile.y + 0.5f + (dir.y * 0.4f) + (dir.x * Random.Range(-0.4f, 0.4f)));
-                    var go = Instantiate<GameObject>(prefab.gameObject, position, Quaternion.identity, tileBehaviour.transform);
+                    Vector3 position = new Vector3(tile.x + 0.5f + (dir.x * 0.4f) + (dir.y * Random.Range(-0.4f, 0.4f)), 0, tile.y + 0.5f + (dir.y * 0.4f) + (dir.x * Random.Range(-0.4f, 0.4f)));
+                    var go = Instantiate<GameObject>(config.groundTorchPrefab.gameObject, position, Quaternion.identity, tileBehaviour.transform);
+                    go.GetComponent<SpriteRenderer>().sprite = sprite;
                     go.isStatic = true;
                 }
             }
@@ -303,13 +305,18 @@ public class WorldGeneratorBehaviour : MonoBehaviour
             var room = shuffledRooms[i];
 
             var emptyTiles = World.GetEmptyTilesInArea(room.rect);
-            UnityEngine.Debug.Assert(emptyTiles.Count > 0);
+            foreach(var tileIndex in emptyTiles)
+            {
+                if(World.HasNeighborOfType(tileIndex, WorldTileType.Corridor)) continue; //ignore tiles adjacent to corridors
 
-            int tileIndex = emptyTiles[Random.Range(0, emptyTiles.Count)];
-            var tilePos = World.TilePos(tileIndex);
+                var tilePos = World.TilePos(tileIndex);
 
-            var objectiveGO = Instantiate<GameObject>(config.objectivePrefab.gameObject, new Vector3(tilePos.x + 0.5f, 0, tilePos.y + 0.5f), Quaternion.identity, World.tiles[tileIndex].behaviour.transform);
-            World.tiles[tileIndex].interactable = objectiveGO.GetComponent<ObjectiveInteractableBehaviour>();
+                var objectiveGO = Instantiate<GameObject>(config.objectivePrefab.gameObject, new Vector3(tilePos.x + 0.5f, 0, tilePos.y + 0.5f), Quaternion.identity, World.tiles[tileIndex].behaviour.transform);
+                World.tiles[tileIndex].interactable = objectiveGO.GetComponent<ObjectiveInteractableBehaviour>();
+
+                break;
+            }
+            
         }
     }
 

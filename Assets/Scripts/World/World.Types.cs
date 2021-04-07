@@ -18,6 +18,7 @@ public partial class World
         public WorldTileBehaviour behaviour;
         public InteractableBehaviour interactable;
         public WorldAgentBehaviour agent;
+        public bool explored;
 
         public bool IsEmpty => (type != WorldTileType.None) && !((interactable && interactable.IsBlocking) || agent);
     }

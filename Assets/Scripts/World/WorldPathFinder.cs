@@ -107,7 +107,7 @@ public class WorldPathFinder
             {
                 Vector2Int neighbor = current + s_neighborOffsets[i];
 
-                if (!worldGen.World.IsTilePosValid(neighbor.x, neighbor.y)) continue;
+                if (!worldGen.World.IsTilePosValid(neighbor)) continue;
 
                 float weight = weightCalculator(neighbor);
                 if (weight < 0) continue;
@@ -161,4 +161,5 @@ public class WorldPathFinder
         finalPath.Reverse();
         return finalPath;
     }
+
 }

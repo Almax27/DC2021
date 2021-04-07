@@ -15,8 +15,8 @@ public class WorldBiomeConfig : ScriptableObject
     public Sprite[] grassSprites = new Sprite[0];
 
     public float torchDensity = 0.1f;
-    public TorchBehaviour[] ceilingTorchesPrefabs = new TorchBehaviour[0];
-    public TorchBehaviour[] groundTorchesPrefabs = new TorchBehaviour[0];
+    public Sprite[] ceilingTorchSprites = new Sprite[0];
+    public Sprite[] groundTorchSprites = new Sprite[0];
 
     public bool randomiseCeilingRotation = true;
     public bool randomiseGroundRotation = true;

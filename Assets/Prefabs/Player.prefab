@@ -55,7 +55,10 @@ MonoBehaviour:
   beatGrace: 0.1
   humanResponseTime: 0.1
   beatsToSkipOnMiss: 1
+  viewDistance: 3
   debugIgnoreBeats: 0
+  moveClip: {fileID: 8300000, guid: 5b22b3c73059b8943873e4d851bab1b4, type: 3}
+  missClip: {fileID: 8300000, guid: 7e4a178018796ea4598f442e712450e7, type: 3}
 --- !u!1 &2613556273290048712
 GameObject:
   m_ObjectHideFlags: 0

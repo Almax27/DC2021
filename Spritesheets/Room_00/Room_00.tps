@@ -132,7 +132,7 @@
             <key>datafile</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>../Assets/Sprites/Enemies/Skelly.tpsheet</filename>
+                <filename>../../Assets/Sprites/World/Room_00.tpsheet</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -163,7 +163,7 @@
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>extrude</key>
-            <uint>1</uint>
+            <uint>0</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMargin</key>
@@ -180,10 +180,49 @@
             <true/>
         </struct>
         <key>individualSpriteSettings</key>
-        <map type="IndividualSpriteSettingsMap"/>
+        <map type="IndividualSpriteSettingsMap">
+            <key type="filename">Room/Room_00_Ceiling_00.png</key>
+            <key type="filename">Room/Room_00_Ceiling_00_n.png</key>
+            <key type="filename">Room/Room_00_Ceiling_01.png</key>
+            <key type="filename">Room/Room_00_Ceiling_01_n.png</key>
+            <key type="filename">Room/Room_00_Ceiling_02.png</key>
+            <key type="filename">Room/Room_00_Ceiling_02_n.png</key>
+            <key type="filename">Room/Room_00_Ceiling_03.png</key>
+            <key type="filename">Room/Room_00_Ceiling_03_n.png</key>
+            <key type="filename">Room/Room_00_Ground_00.png</key>
+            <key type="filename">Room/Room_00_Ground_00_n.png</key>
+            <key type="filename">Room/Room_00_Ground_01.png</key>
+            <key type="filename">Room/Room_00_Ground_01_n.png</key>
+            <key type="filename">Room/Room_00_Ground_02.png</key>
+            <key type="filename">Room/Room_00_Ground_02_n.png</key>
+            <key type="filename">Room/Room_00_Ground_03.png</key>
+            <key type="filename">Room/Room_00_Ground_03_n.png</key>
+            <key type="filename">Room/Room_00_Wall_00.png</key>
+            <key type="filename">Room/Room_00_Wall_00_n.png</key>
+            <key type="filename">Room/Room_00_Wall_01.png</key>
+            <key type="filename">Room/Room_00_Wall_01_n.png</key>
+            <key type="filename">Room/Room_00_Wall_02.png</key>
+            <key type="filename">Room/Room_00_Wall_02_n.png</key>
+            <key type="filename">Room/Room_00_Wall_03.png</key>
+            <key type="filename">Room/Room_00_Wall_03_n.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>spriteScale</key>
+                <double>1</double>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9Paddings</key>
+                <rect>32,32,64,64</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+        </map>
         <key>fileList</key>
         <array>
-            <filename>World</filename>
+            <filename>Room</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

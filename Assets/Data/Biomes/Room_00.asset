@@ -12,36 +12,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9301c551455f9e479239a1b893c47f0, type: 3}
   m_Name: Room_00
   m_EditorClassIdentifier: 
-  spriteMaterial: {fileID: 2100000, guid: 972023e8916bae342aecdcc8c4ab9b27, type: 2}
+  spriteMaterial: {fileID: 2100000, guid: 3592290c1d92fa74698221c3d42e4df5, type: 2}
   ceilingSprites:
-  - {fileID: -735398458510992909, guid: 040a91a2615610e449af9bd2d5c0d13e, type: 3}
+  - {fileID: -735398458510992909, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: -1006637209330902677, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: -8472883110025520778, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: -4062520432065873678, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
   groundSprites:
-  - {fileID: -1804836258561129277, guid: 040a91a2615610e449af9bd2d5c0d13e, type: 3}
+  - {fileID: -1804836258561129277, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: -4861625854308500651, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: -3644864869296238972, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: -3389388092488807107, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
   wallSprites:
-  - {fileID: -394125999373589510, guid: 040a91a2615610e449af9bd2d5c0d13e, type: 3}
-  propsMaterial: {fileID: 2100000, guid: f934df9998fac554e8f523a1150dc695, type: 2}
+  - {fileID: -394125999373589510, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: 6084897867117170740, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: 3758006433995539422, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  - {fileID: 3406942582787931708, guid: 21be9a0c9d6af5143baec1a07adb241a, type: 3}
+  propsMaterial: {fileID: 2100000, guid: 57bc6433262037e4e97e24626729f601, type: 2}
   grassPerTile:
     min: 0
     max: 20
   grassSprites:
-  - {fileID: -423835421617251391, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: -1966059221496031154, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: -7513234691797176361, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: -4917065653246130730, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 3145016153097845001, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 1945687659544679340, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 7612432311994182350, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: -1920024026932612433, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 3187931346221337030, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 8157523759226308187, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 1665663874810610483, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: -893726694981695562, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
-  - {fileID: 2989788759208323229, guid: 8b45202e984f6d443aa9f8b380992677, type: 3}
+  - {fileID: -423835421617251391, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: -1966059221496031154, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: -7513234691797176361, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: -4917065653246130730, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 3145016153097845001, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 1945687659544679340, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 7612432311994182350, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: -1920024026932612433, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 3187931346221337030, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 8157523759226308187, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 1665663874810610483, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: -893726694981695562, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  - {fileID: 2989788759208323229, guid: d2784aefb52eb494087a582f151a321b, type: 3}
   torchDensity: 0.05
-  ceilingTorchesPrefabs:
-  - {fileID: 2658421686151797904, guid: 7f112d2f25e02994b844989ddaa13e47, type: 3}
-  groundTorchesPrefabs:
-  - {fileID: 2658421686151797904, guid: 3b2272a541094f14ea2e4533b5725955, type: 3}
+  ceilingTorchSprites:
+  - {fileID: 7123390261978219354, guid: d2784aefb52eb494087a582f151a321b, type: 3}
+  groundTorchSprites:
+  - {fileID: -9151183444781455326, guid: d2784aefb52eb494087a582f151a321b, type: 3}
   randomiseCeilingRotation: 1
   randomiseGroundRotation: 1
   ambientColor: {r: 0.30588236, g: 0.21960784, b: 0.7372549, a: 1}

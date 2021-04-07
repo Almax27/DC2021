@@ -2,20 +2,14 @@ version: 2
 importPivots: 1
 tpsheetFileNames:
 - Assets/Sprites/Enemies/Skelly.tpsheet
-- Assets/Sprites/World/Room_00.tpsheet
-- Assets/Sprites/World/Room_00_Props.tpsheet
-- Assets/Sprites/World/Room_01.tpsheet
-- Assets/Sprites/World/World.tpsheet
+- Assets/Sprites/World/Room_Props.tpsheet
+- Assets/Sprites/World/Rooms.tpsheet
 textureFileNames:
 - Assets/Sprites/Enemies/Skelly.png
-- Assets/Sprites/World/Room_00.png
-- Assets/Sprites/World/Room_00_Props.png
-- Assets/Sprites/World/Room_01.png
-- Assets/Sprites/World/World.png
+- Assets/Sprites/World/Room_Props.png
+- Assets/Sprites/World/Rooms.png
 normalmapFileNames:
 - Assets/Sprites/Enemies/Skelly_n.png
-- Assets/Sprites/World/Room_00_n.png
-- Assets/Sprites/World/Room_00_Props_n.png
-- Assets/Sprites/World/Room_01_n.png
-- Assets/Sprites/World/World_n.png
+- Assets/Sprites/World/Room_Props_n.png
+- Assets/Sprites/World/Rooms_n.png
 enableDebugOutput: 0

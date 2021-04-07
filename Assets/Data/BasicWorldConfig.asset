@@ -65,6 +65,10 @@ MonoBehaviour:
     type: 3}
   ambientRoomLightPrefab: {fileID: 9088998490818938363, guid: ef368a1f5fbc07d459aeec43af667da8,
     type: 3}
+  ceilingTorchPrefab: {fileID: 2658421686151797904, guid: 7f112d2f25e02994b844989ddaa13e47,
+    type: 3}
+  groundTorchPrefab: {fileID: 2658421686151797904, guid: 3b2272a541094f14ea2e4533b5725955,
+    type: 3}
   propPrefab: {fileID: 2493474653302264466, guid: 5a4a5ce22102cbd4bb74ed8fcc8f7c0d,
     type: 3}
   objectiveCount: 3

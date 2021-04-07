@@ -37,6 +37,8 @@ public class WorldConfig : ScriptableObject
     public PlayerBehaviour playerPrefab;
 
     public Light ambientRoomLightPrefab;
+    public TorchBehaviour ceilingTorchPrefab;
+    public TorchBehaviour groundTorchPrefab;
 
     public SpriteRenderer propPrefab;
 

@@ -183,10 +183,24 @@
         <map type="IndividualSpriteSettingsMap">
             <key type="filename">Room/Room_01_Ceiling_00.png</key>
             <key type="filename">Room/Room_01_Ceiling_00_n.png</key>
+            <key type="filename">Room/Room_01_Ceiling_01.png</key>
+            <key type="filename">Room/Room_01_Ceiling_01_n.png</key>
+            <key type="filename">Room/Room_01_Ceiling_02.png</key>
+            <key type="filename">Room/Room_01_Ceiling_02_n.png</key>
             <key type="filename">Room/Room_01_Ground_00.png</key>
             <key type="filename">Room/Room_01_Ground_00_n.png</key>
+            <key type="filename">Room/Room_01_Ground_01.png</key>
+            <key type="filename">Room/Room_01_Ground_01_n.png</key>
+            <key type="filename">Room/Room_01_Ground_02.png</key>
+            <key type="filename">Room/Room_01_Ground_02_n.png</key>
+            <key type="filename">Room/Room_01_Ground_03.png</key>
+            <key type="filename">Room/Room_01_Ground_03_n.png</key>
             <key type="filename">Room/Room_01_Wall_00.png</key>
             <key type="filename">Room/Room_01_Wall_00_n.png</key>
+            <key type="filename">Room/Room_01_Wall_01.png</key>
+            <key type="filename">Room/Room_01_Wall_01_n.png</key>
+            <key type="filename">Room/Room_01_Wall_02.png</key>
+            <key type="filename">Room/Room_01_Wall_02_n.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
