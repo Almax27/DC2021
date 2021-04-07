@@ -3,6 +3,7 @@ Shader "Custom/WorldSprite"
     Properties
     {
         _Color("Color", Color) = (1,1,1,1)
+        [HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
         _MainTex("Albedo", 2D) = "white" {}
 
         _Cutoff("Alpha Cutoff", Range(0.0, 1.0)) = 0.5

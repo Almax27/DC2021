@@ -69,9 +69,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
         type: 3}
+      propertyPath: damageMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 380849198b61c3e4bb4d0e093aac1a8f, type: 2}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 864283611034392762}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: damageTakenClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5b22b3c73059b8943873e4d851bab1b4, type: 3}
     - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
         type: 3}
       propertyPath: combatStateFlows.Array.size

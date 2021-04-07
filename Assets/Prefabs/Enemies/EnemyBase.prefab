@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580979236890316523}
-  m_LocalRotation: {x: 0, y: 0.91346866, z: 0, w: -0.40690917}
+  m_LocalRotation: {x: 0, y: 0.83003557, z: 0, w: 0.5577105}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -53,6 +53,9 @@ MonoBehaviour:
   turnSmoothTime: 0.05
   turnMaxSpeed: 360
   tileOffset: {x: 0, y: 0, z: 0}
+  damageTakenClip: {fileID: 0}
+  damageBlockedClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: 780b4ef32c3540d4eb9b0f50ca06a185, type: 3}
   spriteRenderer: {fileID: 0}
   combatStateFlows: []
   idleAnimation:
@@ -80,6 +83,8 @@ MonoBehaviour:
     StartFrame: 0
     FramesPerBeat: 1
   beatsPerMove: 2
+  aggroRange: 10
+  damageColor: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
 --- !u!114 &1210849394584104787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,15 +169,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8921206515315555703, guid: be52da761f189c745b8ac506dae7a495,
+  m_Sprite: {fileID: -8513910256942680837, guid: be52da761f189c745b8ac506dae7a495,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5234375, y: 0.78125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

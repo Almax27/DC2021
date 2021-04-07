@@ -49,6 +49,7 @@ MonoBehaviour:
   gameConfig: {fileID: 11400000, guid: 0123899927e22a2409a2f4d07e28cda4, type: 2}
   musicSource: {fileID: -4641737984890875274}
   GameSpeed: 1
+  TimeOffsetOverride: -1
   onBeatEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -275,18 +276,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicPulsePrefab: {fileID: 167243914272917115, guid: cde98a9fe90e08440a9fe1fe377d6d4f,
     type: 3}
-  debugStartTimeDelay: 0
   minimapSize: {x: 400, y: 400}
   minimapInset: {x: 20, y: 20}
   minimapBackgroundColor: {r: 0, g: 0, b: 0, a: 0}
   minimapTileSize: 16
   minimapTilePadding: 0
+  minimapTileTexture: {fileID: 0}
   minimapTileColor: {r: 1, g: 1, b: 1, a: 1}
   minimapTileUnexporedColor: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
-  minimapPlayerColor: {r: 0, g: 0, b: 1, a: 1}
-  minimapPlayerHeadingColor: {r: 0, g: 0.901399, b: 0.9811321, a: 1}
-  minimapEnemyColor: {r: 1, g: 0, b: 0, a: 1}
-  minimapObjectiveColor: {r: 0, g: 0.6698113, b: 0, a: 1}
-  minimapTileTexture: {fileID: 0}
   minimapPlayerTexture: {fileID: 2800000, guid: ee08acc42cd9438499515ced114b2fb6,
     type: 3}
+  minimapPlayerColor: {r: 0, g: 0.50980395, b: 1, a: 1}
+  minimapEnemyTexture: {fileID: 2800000, guid: aabfd8be728f5d746b09d400ef0abd9b, type: 3}
+  minimapEnemyColor: {r: 1, g: 0, b: 0, a: 1}
+  minimapObjectiveTexture: {fileID: 2800000, guid: 1617fb21507ac5a4d9298160c509072e,
+    type: 3}
+  minimapObjectiveColor: {r: 1, g: 0.54901963, b: 0, a: 1}

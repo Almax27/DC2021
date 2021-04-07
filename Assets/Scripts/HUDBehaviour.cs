@@ -14,14 +14,19 @@ public class HUDBehaviour : MonoBehaviour
     
     public int minimapTileSize = 5;
     public int minimapTilePadding = 1;
+    
+    public Texture2D minimapTileTexture;
     public Color minimapTileColor = new Color(1, 1, 1, 1);
     public Color minimapTileUnexporedColor = new Color(0.5f, 0.5f, 0.5f, 1);
-    public Color minimapPlayerColor = new Color(0, 0, 1, 1);
-    public Color minimapPlayerHeadingColor = new Color(0, 0, 1, 1);
-    public Color minimapEnemyColor = new Color(1, 0, 0, 1);
-    public Color minimapObjectiveColor = new Color(0, 1, 0, 1);
-    public Texture2D minimapTileTexture;
+
     public Texture2D minimapPlayerTexture;
+    public Color minimapPlayerColor = new Color(0, 0, 1, 1);
+   
+    public Texture2D minimapEnemyTexture;
+    public Color minimapEnemyColor = new Color(1, 0, 0, 1);
+
+    public Texture2D minimapObjectiveTexture;
+    public Color minimapObjectiveColor = new Color(0, 1, 0, 1);
 
     GameManager gameManager;
 
@@ -75,10 +80,11 @@ public class HUDBehaviour : MonoBehaviour
     {
         if (!gameManager || gameManager.World == null || gameManager.Player == null) return;
 
-        if (!minimapTileTexture)
-        {
-            minimapTileTexture = Texture2D.whiteTexture;
-        }
+        if (!minimapTileTexture) minimapTileTexture = Texture2D.whiteTexture;
+        if (!minimapPlayerTexture) minimapPlayerTexture = Texture2D.whiteTexture;
+        if (!minimapEnemyTexture) minimapEnemyTexture = Texture2D.whiteTexture;
+        if (!minimapObjectiveTexture) minimapObjectiveTexture = Texture2D.whiteTexture;
+
 
         var world = gameManager.World;
 
@@ -122,45 +128,33 @@ public class HUDBehaviour : MonoBehaviour
                 tileRect.x = (int)minimapArea.width / 2 + (playerRelativePos.x + playerOffset.x) * (tileRect.width + minimapTilePadding);
                 tileRect.y = (int)minimapArea.width / 2 - (playerRelativePos.y + playerOffset.y) * (tileRect.height + minimapTilePadding);
 
-                Color color = minimapTileColor;
-                bool flash = false;
+                GUI.color = world.HasUnexporedNeighbors(tileIndex) ? minimapTileUnexporedColor : minimapTileColor;
+                GUI.DrawTexture(tileRect, minimapTileTexture, ScaleMode.ScaleToFit);
 
                 if (tile.agent is PlayerBehaviour)
                 {
+                    var color = minimapPlayerColor;
+                    color.a = gameManager.MusicTime % 1.0f < 0.3f ? 0.2f : 1.0f;
+
+                    var rotation = tile.agent.transform.rotation.eulerAngles.y;
+
                     GUI.color = color;
-                    GUI.DrawTexture(tileRect, minimapTileTexture, ScaleMode.ScaleToFit);
-
-                    var rotation = PlayerBehaviour.RotationFromHeading(tile.agent.TileHeading);
-                    rotation = tile.agent.transform.rotation.eulerAngles.y;
-
-                    GUI.color = minimapPlayerColor;
                     GUIUtility.RotateAroundPivot(rotation, tileRect.center);
                     GUI.DrawTexture(tileRect, minimapPlayerTexture, ScaleMode.ScaleToFit);
                     GUI.matrix = Matrix4x4.identity;
-
-                    continue;
                 }
                 else if (tile.agent is EnemyBehaviour)
                 {
-                    color = minimapEnemyColor;
+                    GUI.color = minimapEnemyColor;
+                    GUI.DrawTexture(tileRect, minimapEnemyTexture, ScaleMode.ScaleToFit);
                 }
                 else if (tile.interactable is ObjectiveInteractableBehaviour)
                 {
-                    color = minimapObjectiveColor;
-                    flash = true;
-                }
-                else if(world.HasUnexporedNeighbors(tileIndex))
-                {
-                    color = minimapTileUnexporedColor;
-                }
-
-                if(flash)
-                {
+                    var color = minimapObjectiveColor;
                     color.a = gameManager.MusicTime % 1.0f < 0.3f ? 0.2f : 1.0f;
+                    GUI.color = color;
+                    GUI.DrawTexture(tileRect, minimapObjectiveTexture, ScaleMode.ScaleToFit);
                 }
-
-                GUI.color = color;
-                GUI.DrawTexture(tileRect, minimapTileTexture, ScaleMode.ScaleToFit);
             }
 
         }

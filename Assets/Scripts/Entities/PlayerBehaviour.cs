@@ -34,8 +34,8 @@ public class PlayerBehaviour : WorldAgentBehaviour
 
     public bool debugIgnoreBeats = false;
 
-    public AudioClip moveClip;
     public AudioClip missClip;
+    public AudioSource actionAudioSource;
 
     private void Start()
     {
@@ -74,17 +74,11 @@ public class PlayerBehaviour : WorldAgentBehaviour
                 }
                 else
                 {
-                    if (MoveForward())
-                    {
-                        AudioUtils.PlayOnce(moveClip, transform.position, 0.3f);
-                    }
+                    MoveForward();
                 }
                 break;
             case PlayerAction.MoveBack:
-                if(MoveBackwards())
-                {
-                    AudioUtils.PlayOnce(moveClip, transform.position, 0.3f, 0.7f);
-                }
+                MoveBackwards();
                 break;
             case PlayerAction.TurnLeft:
                 TurnAntiClockwise();
@@ -97,7 +91,12 @@ public class PlayerBehaviour : WorldAgentBehaviour
     }
 
     void RequestAction(PlayerAction action)
-    {
+    { 
+       if(pendingAction != PlayerAction.None)
+        {
+
+        }
+
         if (graceUsed && GameManager.MusicTime < beatGrace)
         {
             Debug.LogWarning($"{action}: Pressed while locked!");
@@ -116,18 +115,23 @@ public class PlayerBehaviour : WorldAgentBehaviour
         float responseTimeOffet = GameManager.SecondsToMusicTime(humanResponseTime);
 
         float beatTime = (GameManager.MusicTime - responseTimeOffet) % 1.0f;
-        beatTime += beatGrace;
+        beatTime -= beatGrace;
         if(debugIgnoreBeats)
         {
             pendingActionAccuracy = PlayerActionAccuracy.Perfect;
             TryConsumePendingAction();
             return;
         }
+        else if (beatTime < 0.0f)
+        {
+            pendingActionAccuracy = PlayerActionAccuracy.Perfect;
+        }
         else if (beatTime < 0.5f)
         {
             pendingActionAccuracy = PlayerActionAccuracy.Miss;
             beatsToSkip = beatsToSkipOnMiss + 1;
-            AudioUtils.PlayOnce(missClip, transform.position);
+            actionAudioSource.pitch = 1.0f;
+            actionAudioSource.PlayOneShot(missClip);
         }
         else if(beatTime < 0.7f)
         {
@@ -137,25 +141,21 @@ public class PlayerBehaviour : WorldAgentBehaviour
         {
             pendingActionAccuracy = PlayerActionAccuracy.Good;
         }
-        else if(beatTime > 1.0f)
-        {
-            graceUsed = true;
-            pendingActionAccuracy = PlayerActionAccuracy.Perfect;
-        }
         else
         {
             pendingActionAccuracy = PlayerActionAccuracy.Perfect;
         }
 
         //if we've missed the beat, consume immediately
-        if(GameManager.MusicTime % 1.0f < beatTime && pendingActionAccuracy != PlayerActionAccuracy.Miss)
+        if(beatTime < 0 && pendingActionAccuracy != PlayerActionAccuracy.Miss)
         {
             Debug.Log("Grace!");
+            graceUsed = true;
             TryConsumePendingAction();
         }
         
 
-        Debug.Log($"{pendingAction} : {pendingActionAccuracy} : {GameManager.MusicTime%1.0f:F2}: {beatTime:F2}" + (graceUsed ? " : (grace)" : ""));
+        Debug.Log($"{pendingAction} : {pendingActionAccuracy} : b{beatTime:F2} : m{GameManager.MusicTime % 1.0f:F2}" + (graceUsed ? " : (grace)" : ""));
     }
 
     // Update is called once per frame
@@ -195,14 +195,13 @@ public class PlayerBehaviour : WorldAgentBehaviour
     {
         IsAttacking = true;
 
-        Vector2Int attackTile = TilePosition + HeadingDirection(TileHeading);
-        foreach (var otherAgent in FindObjectsOfType<WorldAgentBehaviour>())
+        Vector2Int attackTilePos = TilePosition + HeadingDirection(TileHeading);
+        var attackTile = GameManager.World.TileAtPostion(attackTilePos);
+
+        if(attackTile.agent && attackTile.agent != this)
         {
-            if (otherAgent.TilePosition == attackTile)
-            {
-                otherAgent.TakeDamage(1, this);
-                return true;
-            }
+            attackTile.agent.TakeDamage(1, this);
+            return true;
         }
         return false;
     }

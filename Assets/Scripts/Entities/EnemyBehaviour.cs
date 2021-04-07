@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -56,6 +57,8 @@ public class EnemyBehaviour : WorldAgentBehaviour
 
     Vector2Int homePosition = Vector2Int.zero;
     public float aggroRange = 10;
+
+    public Material damageMaterial = null;
 
     private void OnDrawGizmosSelected()
     {
@@ -227,5 +230,20 @@ public class EnemyBehaviour : WorldAgentBehaviour
             }
         }
         return true;
+    }
+
+    public override void OnDamage(int damage, Object source)
+    {
+        base.OnDamage(damage, source);
+
+        StartCoroutine(SwapMaterials(damageMaterial, 0.2f));
+    }
+
+    IEnumerator SwapMaterials(Material material, float duration)
+    {
+        var oldMat = spriteRenderer.sharedMaterial;
+        spriteRenderer.sharedMaterial = material;
+        yield return new WaitForSeconds(duration);
+        spriteRenderer.sharedMaterial = oldMat;
     }
 }

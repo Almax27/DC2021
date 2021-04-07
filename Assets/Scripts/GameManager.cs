@@ -21,13 +21,14 @@ public class GameManager : MonoBehaviour
     GameConfig.MusicConfig musicConfig;
 
     public float GameSpeed = 1.0f;
+    public float TimeOffsetOverride = -1.0f;
 
     public GameState GameState { get; protected set; }
 
     //Normalised music time relative to BPM. I.e. 0-1 per beat
     public float MusicTime { get; private set; }
 
-    public float BeatDuration => musicConfig.BPM / 60.0f;
+    public float BeatsPerSecond => musicConfig.BPM / 60.0f;
 
     WorldGeneratorBehaviour worldGeneratorBehaviour;
     public World World 
@@ -90,14 +91,15 @@ public class GameManager : MonoBehaviour
 
     public float SecondsToMusicTime(float seconds)
     {
-        return seconds * (musicConfig.BPM / 60.0f);
+        return seconds * BeatsPerSecond;
     }
 
     void Update()
     {
         if (musicSource && musicSource.isPlaying)
         {
-            MusicTime = (musicConfig.TimeOffset+ musicSource.time) * BeatDuration;
+            float offset = TimeOffsetOverride >= 0 ? TimeOffsetOverride : musicConfig.TimeOffset;
+            MusicTime = (offset + musicSource.time) * BeatsPerSecond;
             musicSource.pitch = GameSpeed;
 
             if(MusicTime % 1.0f < previousMusicTime % 1.0f)

@@ -26,6 +26,10 @@ public class WorldAgentBehaviour : MonoBehaviour
 
     public Vector3 tileOffset = Vector3.zero;
 
+    public AudioClip damageTakenClip;
+    public AudioClip damageBlockedClip;
+    public AudioClip deathClip;
+
     protected virtual void Awake()
     {
         PostSpawn();
@@ -137,11 +141,13 @@ public class WorldAgentBehaviour : MonoBehaviour
 
         Health -= damage;
 
+        OnDamage(damage, source);
+
         if(IsDead())
         {
             Debug.Log($"{this.name} died!");
 
-            OnDeath();
+            OnDeath(source);
 
             foreach(var nugget in deathNuggetPrefabs)
             {
@@ -155,9 +161,19 @@ public class WorldAgentBehaviour : MonoBehaviour
         }
     }
 
-    public virtual void OnDeath()
+    public virtual void OnDamage(int damage, Object source)
     {
+        AudioUtils.PlayOnce(damageTakenClip, transform.position);
+    }
 
+    public virtual void OnBlocked(int damage, Object source)
+    {
+        AudioUtils.PlayOnce(damageBlockedClip, transform.position);
+    }
+
+    public virtual void OnDeath(Object killer)
+    {
+        AudioUtils.PlayOnce(deathClip, transform.position);
     }
 
     #region static methods
