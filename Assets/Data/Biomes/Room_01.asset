@@ -51,4 +51,5 @@ MonoBehaviour:
   - {fileID: -6858625969521332756, guid: d2784aefb52eb494087a582f151a321b, type: 3}
   randomiseCeilingRotation: 0
   randomiseGroundRotation: 0
-  ambientColor: {r: 0, g: 1, b: 0.020182133, a: 1}
+  ambientColor: {r: 0.754717, g: 0.07291764, b: 0, a: 1}
+  torchColor: {r: 0, g: 0.8, b: 0.63560313, a: 1}

@@ -22,4 +22,5 @@ public class WorldBiomeConfig : ScriptableObject
     public bool randomiseGroundRotation = true;
 
     public Color ambientColor = Color.white;
+    public Color torchColor = Color.white;
 }

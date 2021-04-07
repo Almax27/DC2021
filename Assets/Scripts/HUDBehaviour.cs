@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HUDBehaviour : MonoBehaviour
 {
     public Image musicPulsePrefab;
-    public readonly int numberOfPulses = 5;
+    public int numberOfPulses = 5;
 
     public Vector2 minimapSize = new Vector2(100,100);
     public Vector2 minimapInset = new Vector2(20, 20);
@@ -27,6 +27,16 @@ public class HUDBehaviour : MonoBehaviour
 
     public Texture2D minimapObjectiveTexture;
     public Color minimapObjectiveColor = new Color(0, 1, 0, 1);
+    
+    public Vector2Int heartInset = new Vector2Int(20,20);
+    public Vector2Int heartSize = new Vector2Int(60,60);
+    public int heartSpacing = 5;
+    public Texture2D fullHeartTexture;
+    public Texture2D emptyHeartTexture;
+
+    public Texture2D damageOverlayTexture;
+
+    public GUIStyle helpTextStyle = new GUIStyle();
 
     GameManager gameManager;
 
@@ -46,14 +56,15 @@ public class HUDBehaviour : MonoBehaviour
         for (int i = 0; i < numberOfPulses; i++)
         {
             var left = Instantiate<GameObject>(musicPulsePrefab.gameObject, transform).GetComponent<Image>();
-            left.rectTransform.pivot = new Vector2(1, 0);
+            //left.rectTransform.pivot = new Vector2(1, 0);
             leftMusicPulses.Add(left);
 
             var right = Instantiate<GameObject>(musicPulsePrefab.gameObject, transform).GetComponent<Image>();
-            right.rectTransform.pivot = new Vector2(0, 0);
+            //right.rectTransform.pivot = new Vector2(0, 0);
             rightMusicPulses.Add(right);
         }
-        
+
+        StartCoroutine(FadeOut(false));
     }
 
     // Update is called once per frame
@@ -70,21 +81,37 @@ public class HUDBehaviour : MonoBehaviour
             leftMusicPulses[i].color = color;
             rightMusicPulses[i].color = color;
 
-            leftMusicPulses[i].rectTransform.anchoredPosition = new Vector2(-(invBeatTime + i) * beatWidth, 0);
-            rightMusicPulses[i].rectTransform.anchoredPosition = new Vector2((invBeatTime + i) * beatWidth, 0);
+            leftMusicPulses[i].rectTransform.anchoredPosition = new Vector2(-(invBeatTime + i) * beatWidth, 30);
+            rightMusicPulses[i].rectTransform.anchoredPosition = new Vector2((invBeatTime + i) * beatWidth, 30);
         }
 
     }
 
     void OnGUI()
     {
-        if (!gameManager || gameManager.World == null || gameManager.Player == null) return;
+        if (!gameManager || gameManager.World == null) return;
 
         if (!minimapTileTexture) minimapTileTexture = Texture2D.whiteTexture;
         if (!minimapPlayerTexture) minimapPlayerTexture = Texture2D.whiteTexture;
         if (!minimapEnemyTexture) minimapEnemyTexture = Texture2D.whiteTexture;
         if (!minimapObjectiveTexture) minimapObjectiveTexture = Texture2D.whiteTexture;
 
+        DrawDamageOverlayGUI();
+
+        DrawHelpText();
+
+        DrawPlayerGUI();
+
+        if (fadeValue != 0)
+        {
+            GUI.color = new Color(0, 0, 0, fadeValue);
+            GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture);
+        }
+    }
+
+    void DrawPlayerGUI()
+    {
+        if (gameManager.Player == null) return;
 
         var world = gameManager.World;
 
@@ -119,7 +146,7 @@ public class HUDBehaviour : MonoBehaviour
             {
                 int tileIndex = p.x + world.Bounds.width * p.y;
                 tile = world.tiles[tileIndex];
-                if(tile.type == WorldTileType.None || !tile.explored)
+                if (tile.type == WorldTileType.None || !tile.explored)
                 {
                     continue;
                 }
@@ -159,6 +186,76 @@ public class HUDBehaviour : MonoBehaviour
 
         }
         GUI.EndClip();
-        //gameManager.World
+
+        GUI.color = Color.white;
+        Rect heartRect = new Rect(heartInset, heartSize);
+        for (int i = 0; i < gameManager.Player.maxHealth; i++)
+        {
+            Texture2D heartTexture = emptyHeartTexture;
+            if (i < gameManager.Player.Health)
+            {
+                heartTexture = fullHeartTexture;
+            }
+            GUI.DrawTexture(heartRect, heartTexture, ScaleMode.ScaleToFit);
+            heartRect.x += heartSize.x + heartSpacing;
+        }
+    }
+
+    void DrawDamageOverlayGUI()
+    {
+        const float fadeTime = 0.3f;
+        if(gameManager.Player && gameManager.Player.LastDamagedTime != 0)
+        {
+            float timeSinceLastDamaged = Time.time - gameManager.Player.LastDamagedTime;
+            if(timeSinceLastDamaged < fadeTime)
+            {
+                float tval = 1.0f - (timeSinceLastDamaged / fadeTime);
+                GUI.color = new Color(1, 1, 1, tval);
+                GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), damageOverlayTexture);
+            }
+        }
+    }
+
+    float helpFadeTime = 1.5f;
+    void DrawHelpText()
+    {
+        if (helpTextToShow.Length > 0)
+        {
+            float timeSinceTextStarted = Time.time - helpTextStartTime;
+            if (timeSinceTextStarted < helpFadeTime)
+            {
+                float tval = 1.0f - Mathf.Clamp01((timeSinceTextStarted* timeSinceTextStarted) / helpFadeTime);
+                GUI.color = new Color(1, 1, 1, tval);
+                GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 25, 100, 50), helpTextToShow, helpTextStyle);
+            }
+        }
+    }
+
+    string helpTextToShow = "";
+    float helpTextStartTime;
+
+    public void ShowText(string text, float duration = 2.5f)
+    {
+        helpFadeTime = duration;
+        helpTextToShow = text;
+        helpTextStartTime = Time.time;
+    }
+
+    float fadeValue = 0;
+
+    public IEnumerator FadeOut(bool fadeOut)
+    {
+        const float duration = 1.5f;
+        fadeValue = fadeOut ? 0 : 1;
+        while (true)
+        {
+            fadeValue += (fadeOut ? 1 : -1) * (Time.deltaTime / duration);
+            if(fadeValue < 0 || fadeValue > 1)
+            {
+                fadeValue = 0;
+                break;
+            }
+            yield return null;
+        }
     }
 }

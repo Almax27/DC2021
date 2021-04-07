@@ -81,7 +81,12 @@ PrefabInstance:
         type: 3}
       propertyPath: damageTakenClip
       value: 
-      objectReference: {fileID: 8300000, guid: 5b22b3c73059b8943873e4d851bab1b4, type: 3}
+      objectReference: {fileID: 8300000, guid: ee471496ac8d4154682986084d8f3806, type: 3}
+    - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
+        type: 3}
+      propertyPath: damageBlockedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 38a4bd1793ba3a247bd03e287806c516, type: 3}
     - target: {fileID: 2545651747683107150, guid: 9f94088790eb25b4491ecaba2cad0ada,
         type: 3}
       propertyPath: combatStateFlows.Array.size

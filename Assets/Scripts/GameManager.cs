@@ -17,11 +17,16 @@ public class GameManager : MonoBehaviour
 {
     public GameConfig gameConfig = null;
 
+    public HUDBehaviour HUD;
+
     public AudioSource musicSource = null;
     GameConfig.MusicConfig musicConfig;
 
     public float GameSpeed = 1.0f;
     public float TimeOffsetOverride = -1.0f;
+
+    public int levelIndex = 0;
+    public bool randomiseLevel = false;
 
     public GameState GameState { get; protected set; }
 
@@ -61,32 +66,48 @@ public class GameManager : MonoBehaviour
 
         worldGeneratorBehaviour = FindObjectOfType<WorldGeneratorBehaviour>();
         Debug.Assert(worldGeneratorBehaviour, "Failed to find a World Generator");
+
+        HUD = FindObjectOfType<HUDBehaviour>();
+        Debug.Assert(HUD, "Failed to find the HUD");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayMusic(0);
-        LoadNewWorld();
+        if(randomiseLevel) worldGeneratorBehaviour.seed = Random.Range(int.MinValue, int.MaxValue);
+        LoadWorld();
     }
 
-    void OnGUI()
+    public void ProgressToNextLevel()
     {
-        GUI.color = Color.white;
-        GUI.Label(new Rect(0, 0, 100, 20), $"Music = {MusicTime:F2}");
-        GUI.color = (MusicTime + 0.1f) % 2.0f < 1.0f ? Color.magenta : Color.white;
-        GUI.Label(new Rect(0, 30, 100, 20), $"Beat = {MusicTime%1.0f:F2}");
+        levelIndex++;
+        if(levelIndex < gameConfig.musicConfigs.Count)
+        {
+            if (randomiseLevel) worldGeneratorBehaviour.seed = Random.Range(int.MinValue, int.MaxValue);
+            LoadWorld();
+        }
+        else //restart
+        {
+            levelIndex = 0;
+            LoadWorld();
+        }
     }
 
-    void LoadNewWorld()
+    void LoadWorld()
     {
-        Debug.Assert(GameState == GameState.Uninitialised, $"Failed to load new world... GameState={GameState}");
+        //Debug.Assert(GameState == GameState.Uninitialised, $"Failed to load new world... GameState={GameState}");
+
+        ObjectiveCompleteCount = 0;
 
         GameState = GameState.GeneratingWorld;
 
         worldGeneratorBehaviour.Generate();
 
         GameState = GameState.Playing;
+
+        PlayMusic(levelIndex);
+
+        HUD.ShowText($"Stage {levelIndex+1}");
     }
 
     public float SecondsToMusicTime(float seconds)
@@ -109,11 +130,6 @@ public class GameManager : MonoBehaviour
             }
             previousMusicTime = MusicTime;
         }
-
-        if(World != null && ObjectiveCompleteCount >= World.config.objectiveCount)
-        {
-            LoadNewWorld();
-        }
     }
 
     public void PlayMusic(int index)
@@ -129,4 +145,65 @@ public class GameManager : MonoBehaviour
             Debug.LogAssertion($"Invalid index {index}");
         }
     }
+
+    public void OnObjectiveComplete()
+    {
+        ObjectiveCompleteCount++;
+        if (ObjectiveCompleteCount >= World.config.objectiveCount)
+        {
+            if (levelIndex == 0)
+            {
+                HUD.ShowText($"Things are gunna get spicy!", 10);
+            }
+            else if(levelIndex == 1)
+            {
+                HUD.ShowText($"IT AINT OVER TILL IT'S OVER", 10);
+            }
+            else
+            {
+                HUD.ShowText($"The Funk Dungeon Never Sleeps!\nThanks for playing!\n\nAaron, Luke & James", 10);
+            }
+
+            StopAllCoroutines();
+            StartCoroutine(LevelComplete());
+
+            
+        }
+        else
+        {
+            HUD.ShowText($"Found {ObjectiveCompleteCount}/{World.config.objectiveCount} party things!");
+        }
+    }
+
+    public void OnPlayerDied()
+    {
+        StopAllCoroutines();
+        StartCoroutine(RestartLevel());
+    }
+
+    IEnumerator LevelComplete()
+    {
+        Destroy(Player);
+        if (levelIndex < gameConfig.musicConfigs.Count - 1)
+        {
+            yield return new WaitForSeconds(1.0f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(3.0f);
+        }
+        yield return HUD.FadeOut(true);
+        ProgressToNextLevel();
+        yield return HUD.FadeOut(false);
+    }
+
+    IEnumerator RestartLevel()
+    {
+        Destroy(Player);
+        yield return HUD.FadeOut(true);
+        LoadWorld();
+        yield return HUD.FadeOut(false);
+        yield return null;
+    }
+
 }

@@ -71,6 +71,7 @@ public class PlayerBehaviour : WorldAgentBehaviour
                 else if(tile.interactable)
                 {
                     Debug.Log($"INTERACT: {tile.interactable.name}");
+                    tile.interactable.OnInteract();
                 }
                 else
                 {
@@ -180,13 +181,30 @@ public class PlayerBehaviour : WorldAgentBehaviour
             RequestAction(PlayerAction.TurnRight);
         }
 
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Keypad0))
         {
             debugIgnoreBeats = !debugIgnoreBeats;
             Debug.Log($"debugIgnoreBeats={debugIgnoreBeats}");
         }
 
-        
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                Heal(1);
+            }
+            else
+            {
+                TakeDamage(1);
+            }
+        }
+
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            GameManager.OnObjectiveComplete();
+        }
+#endif
 
         base.Update();
     }
@@ -209,5 +227,17 @@ public class PlayerBehaviour : WorldAgentBehaviour
     void Defend()
     {
         IsDefending = true;
+    }
+
+    public Vector2Int GetTileInFront()
+    {
+        return TilePosition + HeadingDirection(TileHeading);
+    }
+
+    public override void OnDeath(Object killer)
+    {
+        base.OnDeath(killer);
+
+        GameManager.OnPlayerDied();
     }
 }

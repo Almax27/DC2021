@@ -2,12 +2,18 @@
 
 public class WorldAgentBehaviour : MonoBehaviour
 {
+    public delegate void HealthEvent(WorldAgentBehaviour agent);
+    public HealthEvent OnHealthChanged;
+
     public GameManager GameManager { get; private set; }
     public Vector2Int TilePosition { get; private set; }
     public int TileHeading { get; private set; }
 
     public int Health { get; private set; }
 
+    public float LastDamagedTime{ get; protected set; }
+
+    public bool IsInCombat { get; protected set; }
     public bool IsAttacking{ get; protected set; }
     public bool IsDefending { get; protected set; }
 
@@ -133,13 +139,24 @@ public class WorldAgentBehaviour : MonoBehaviour
         return Health <= 0;
     }
 
-    public void TakeDamage(int damage, Object source)
+    public void TakeDamage(int damage, Object source = null)
     {
         if (IsDead()) return;
+
+        if(IsDefending)
+        {
+            Debug.Log($"{this.name} blocked {damage} damage from {source}");
+            OnBlocked(damage, source);
+            return;
+        }
 
         Debug.Log($"{source} dealt {damage} damage to {this.name}");
 
         Health -= damage;
+
+        LastDamagedTime = Time.time;
+
+        OnHealthChanged?.Invoke(this);
 
         OnDamage(damage, source);
 
@@ -159,6 +176,12 @@ public class WorldAgentBehaviour : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public void Heal(int value)
+    {
+        Health += value;
+        OnHealthChanged?.Invoke(this);
     }
 
     public virtual void OnDamage(int damage, Object source)

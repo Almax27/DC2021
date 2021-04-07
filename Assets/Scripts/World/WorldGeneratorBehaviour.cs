@@ -220,6 +220,7 @@ public class WorldGeneratorBehaviour : MonoBehaviour
                 position.z += 0.5f + (Random.value > 0 ? 1 : -1) * Random.Range(0.3f, 0.4f);
                 var go = Instantiate<GameObject>(config.ceilingTorchPrefab.gameObject, position, Quaternion.identity, tileBehaviour.transform);
                 go.GetComponent<SpriteRenderer>().sprite = sprite;
+                go.GetComponentInChildren<Light>().color = biome.torchColor;
                 go.isStatic = true;
             }
             else if(biome.groundTorchSprites.Length > 0)
@@ -235,6 +236,7 @@ public class WorldGeneratorBehaviour : MonoBehaviour
                     Vector3 position = new Vector3(tile.x + 0.5f + (dir.x * 0.4f) + (dir.y * Random.Range(-0.4f, 0.4f)), 0, tile.y + 0.5f + (dir.y * 0.4f) + (dir.x * Random.Range(-0.4f, 0.4f)));
                     var go = Instantiate<GameObject>(config.groundTorchPrefab.gameObject, position, Quaternion.identity, tileBehaviour.transform);
                     go.GetComponent<SpriteRenderer>().sprite = sprite;
+                    go.GetComponentInChildren<Light>().color = biome.torchColor;
                     go.isStatic = true;
                 }
             }
@@ -313,6 +315,7 @@ public class WorldGeneratorBehaviour : MonoBehaviour
 
                 var objectiveGO = Instantiate<GameObject>(config.objectivePrefab.gameObject, new Vector3(tilePos.x + 0.5f, 0, tilePos.y + 0.5f), Quaternion.identity, World.tiles[tileIndex].behaviour.transform);
                 World.tiles[tileIndex].interactable = objectiveGO.GetComponent<ObjectiveInteractableBehaviour>();
+                World.tiles[tileIndex].interactable.Tile = tilePos;
 
                 break;
             }

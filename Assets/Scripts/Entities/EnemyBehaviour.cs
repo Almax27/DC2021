@@ -106,7 +106,51 @@ public class EnemyBehaviour : WorldAgentBehaviour
             return;
 
         beatCounter++;
+        IsAttacking = false;
+        IsDefending = false;
 
+        if (IsInCombat)
+        {
+            CombatOnBeat();
+        }
+        else
+        {
+            MoveOnBeat();
+        }
+    }
+
+    void CombatOnBeat()
+    {
+        switch (GetEnemyState())
+        {
+            case EnemyState.Idle:
+                break;
+            case EnemyState.AttackTell:
+                GameManager.World.ForEachNeighbour(GameManager.World.TileIndex(TilePosition),
+                t =>
+                {
+                    var tile = GameManager.World.TileAtPostion(t);
+                    if (tile.agent is PlayerBehaviour) tile.agent.TakeDamage(1);
+                });
+                break;
+            case EnemyState.Attacking:
+                IsAttacking = true;
+                
+                break;
+            case EnemyState.EnterDefend:
+                break;
+            case EnemyState.ExitDefend:
+                break;
+            case EnemyState.Defending:
+                IsDefending = true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    void MoveOnBeat()
+    {
         if (beatCounter % beatsPerMove != 0)
             return;
 
@@ -121,7 +165,7 @@ public class EnemyBehaviour : WorldAgentBehaviour
         if (moveToPosition == TilePosition)
             return; //already at destination
 
-        StartCoroutine( pathFinder.Calculate(GameManager.WorldGen, TilePosition,
+        StartCoroutine(pathFinder.Calculate(GameManager.WorldGen, TilePosition,
                         a => a == moveToPosition,
                         a => Vector2Int.Distance(a, GameManager.Player.TilePosition),
                         a =>
@@ -146,11 +190,49 @@ public class EnemyBehaviour : WorldAgentBehaviour
                         }));
     }
 
+
     protected override void Update()
     {
         base.Update();
 
-        UpdateCombat();
+        //Skelly can enter combat if player is adjacent and not in combat
+        bool isPlayerAdjacent = false;
+        GameManager.World.ForEachNeighbour(GameManager.World.TileIndex(TilePosition),
+            t => {
+                var tile = GameManager.World.TileAtPostion(t);
+                if (tile.agent is PlayerBehaviour)
+                {
+                    isPlayerAdjacent = true;
+                }
+            });
+
+        if(isPlayerAdjacent && GameManager.Player.GetTileInFront() == TilePosition)
+        {
+            if (!IsInCombat)
+            {
+                IsInCombat = true;
+                combatStateIndex = 0;
+            }
+        }
+        else if(IsInCombat && GetEnemyState() == EnemyState.Idle)
+        {
+            IsInCombat = false;
+            combatStateIndex = 0;
+        }
+
+        if (IsInCombat)
+        {
+            UpdateCombat();
+        }
+        else
+        {
+            RunAnimation(GetAnimationForState(EnemyState.Idle));
+        }
+    }
+
+    EnemyState GetEnemyState()
+    {
+        return combatStateFlows[combatFlowIndex].States[combatStateIndex];
     }
 
     void UpdateCombat()
@@ -160,8 +242,8 @@ public class EnemyBehaviour : WorldAgentBehaviour
             var combatFlow = combatStateFlows[combatFlowIndex];
             if (combatStateIndex >= 0 && combatStateIndex < combatFlow.States.Count)
             {
-                var currentState = combatFlow.States[combatStateIndex];
-                if (RunAnimation(GetAnimationForState(currentState)))
+                var combatState = combatFlow.States[combatStateIndex];
+                if (RunAnimation(GetAnimationForState(combatState)))
                 {
                     combatStateIndex++;
                     UpdateCombat();

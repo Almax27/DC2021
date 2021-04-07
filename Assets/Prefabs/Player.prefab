@@ -47,19 +47,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
-  destroyOnDeath: 1
+  destroyOnDeath: 0
   deathNuggetPrefabs: []
   moveSmoothTime: 0.1
   moveMaxSpeed: 10
   turnSmoothTime: 0.05
   turnMaxSpeed: 420
   tileOffset: {x: 0, y: 0.5, z: -0.2}
+  damageTakenClip: {fileID: 8300000, guid: 75851a948cfb3ad42b8848882dce946e, type: 3}
+  damageBlockedClip: {fileID: 0}
+  deathClip: {fileID: 0}
   beatGrace: 0.15
   humanResponseTime: 0
   beatsToSkipOnMiss: 0
   viewDistance: 3
   debugIgnoreBeats: 0
-  moveClip: {fileID: 8300000, guid: 5b22b3c73059b8943873e4d851bab1b4, type: 3}
   missClip: {fileID: 8300000, guid: 7e4a178018796ea4598f442e712450e7, type: 3}
   actionAudioSource: {fileID: 4328436026181270987}
 --- !u!82 &4328436026181270987

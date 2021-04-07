@@ -38,7 +38,7 @@ MonoBehaviour:
     fillCountRange:
       min: 1
       max: 8
-    biome: {fileID: 11400000, guid: 9c15992159db4d249aef3c40b8637cc3, type: 2}
+    biome: {fileID: 11400000, guid: cd0f5704dcbd49847ada9d7130c22d50, type: 2}
     enemyTypes:
     - {fileID: 7800131878741505646, guid: 1a8ec5458b05ac444addb88ae1788643, type: 3}
     enemyCountRange:
@@ -51,7 +51,7 @@ MonoBehaviour:
     fillCountRange:
       min: 3
       max: 10
-    biome: {fileID: 11400000, guid: 8e2ac49e9074b6e43b853d0feb19df10, type: 2}
+    biome: {fileID: 11400000, guid: 87d425f05d6e0bd4984fb8c68a125dfc, type: 2}
     enemyTypes:
     - {fileID: 7800131878741505646, guid: 1a8ec5458b05ac444addb88ae1788643, type: 3}
     enemyCountRange:
